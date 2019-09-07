@@ -1,0 +1,128 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Voiceflowハンズオン Google Home編 Vol.1</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="dist"
+                  title="Voiceflowハンズオン Google Home編 Vol.1"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="概要" duration="0">
+        <h2 is-upgraded>はじめに</h2>
+<p class="image-container"><img alt="logo" src="img/ff48bd2d70a67aa0.png"></p>
+<p>Voiceflowを使った、ノンコーディングで始めるGoogle Home向けアクション開発のハンズオン資料です。</p>
+<h2 is-upgraded>想定するターゲット</h2>
+<ul>
+<li>スマートスピーカーアプリ開発に興味のある方</li>
+<li>Google Homeをお持ちの方</li>
+<li>プログラミングをやったことがない方</li>
+<li>とりあえず始めてみたい方</li>
+</ul>
+<h2 is-upgraded>注意</h2>
+<aside class="warning"><p>本手順書は2019年9月7日時点のものですが、Voiceflowの開発はかなり活発なので、本手順書通りに進めてもうまくいかない場合や画面が変更されている場合があります。</p>
+</aside>
+<aside class="warning"><p>Voiceflowは、一部日本語がうまく扱えないところがあります。そのため、回避策的なやり方で進める場合がありますが、ご了承ください。そのうち改善されるかもしれません。</p>
+</aside>
+<aside class="warning"><p>現時点（2019年9月7日）で、VoiceflowはAlexa向けの機能の方が多いです。Google Homeのサポートはまだまだ発展途中だということを予めご了承ください。</p>
+</aside>
+<aside class="special"><p>不具合やお気づきの点があれば、kun432.8d1w@gmail.comまで。</p>
+</aside>
+<h2 is-upgraded>更新履歴</h2>
+<ul>
+<li>2019/09/07    初版</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="事前準備" duration="0">
+        <h2 is-upgraded>必要なもの</h2>
+<p>以下を事前に準備しておいてください。</p>
+<h3 is-upgraded>gmailアカウント</h3>
+<p>以下で使用します。事前に準備しておいてください。</p>
+<ul>
+<li>Voiceflowへのログイン</li>
+<li>Actions on Google / Dialogflow / Google Cloud Platformへのログイン</li>
+<li>Googleスプレッドシートへのログイン</li>
+</ul>
+<h2 is-upgraded>では始めましょう！</h2>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Voiceflowアカウントの作成とログイン" duration="0">
+        <h2 is-upgraded>Voiceflowアカウントの作成</h2>
+<p><a href="https://voiceflow.com/" target="_blank">https://voiceflow.com/</a>にアクセスします。Voiceflowアカウントを持っていない方は、&#34;Sign up free&#34;をクリックしてアカウントを作成しましょう。<br>※すでにアカウントを持っている方は、これ以降の作業は不要です。&#34;Sign in&#34;をクリックしてログインし、次の章に進みましょう。</p>
+<p class="image-container"><img alt="s000" src="img/92009daee52ef5c8.png"></p>
+<p>&#34;Sign up with Google&#34; をクリックします。</p>
+<p class="image-container"><img alt="s001" src="img/aebfa22299830035.png"></p>
+<p>gmailのログイン画面が出てきたらログインします。</p>
+<p class="image-container"><img alt="s002" src="img/e1e358a35093dc31.png"></p>
+<p>登録後にかんたんなアンケートがありますので、順に答えていきましょう。なお、どれを選択したとしてもVoiceflowの利用に影響はありませんので安心してください。&#34;Continue&#34;をクリックして進めます。</p>
+<p class="image-container"><img alt="s003" src="img/d55c64077fcd3b21.png"></p>
+<p>Voiceflowを使う目的（個人利用か、仕事か）を聞いてくるので、適当に選んでください。選んだら、&#34;Continue&#34;をクリックします。</p>
+<p class="image-container"><img alt="s004" src="img/54c7c9f36e6cdd8f.png"></p>
+<p>Voiceflowをどういうふうに使うのか（デザインやプロトタイピング、開発やリリース）を聞いてくるので、適当に選んでください。選んだら、&#34;Continue&#34;をクリックします。</p>
+<p class="image-container"><img alt="s005" src="img/329fb5ab2fb13c8a.png"></p>
+<p>プログラミング経験があるか？を聞いてくるので、適当に選んでください。（経験なし、少しだけ経験あり、経験豊富）。選んだら、&#34;Complete&#34;をクリックします。</p>
+<p class="image-container"><img alt="s006" src="img/748a2f23291a9011.png"></p>
+<p>以下の画面が出てきたらログイン完了です！ちなみに動画の方はVoiceflowのCEOであるBradenさんです。&#34;Get started&#34;をクリックします。</p>
+<p class="image-container"><img alt="s007" src="img/13e00a5e3086295c.png"></p>
+<p>&#34;My First Project&#34; という最初のプロジェクトが開いた状態になっていますが、これは使いません。左上の&#34;＜&#34;をクリックします。</p>
+<p class="image-container"><img alt="s008" src="img/44f50dfde092d1e4.png"></p>
+<p>プロジェクトの一覧画面が表示されます。Voiceflowでは、AlexaスキルやGoogle Homeアクションを「プロジェクト」という単位で管理します。右の列にあるのがさっき開いていた、アカウント作成と同時に最初に自動作成される「My First Project」ですね。左の列にはサンプルのプロジェクトが並んでいます。</p>
+<p>このハンズオンでは、この一覧画面でプロジェクトの新規作成から行いますので、これらのプロジェクトはすべて使用しません。プロジェクトを作成するとこの画面に一覧表示される、と思ってもらえればよいです。</p>
+<p class="image-container"><img alt="s009" src="img/6b84e0ee687b8ce9.png"></p>
+<aside class="special"><p>元々用意されているプロジェクトは、不要であれば削除してもかまいません。特に&#34;My First Project&#34;については、このあとプロジェクトの新規作成を行いますので、削除しても問題ないです。</p>
+</aside>
+<aside class="special"><p>サンプルプロジェクトは、アクションの作り方の参考になると思いますので、興味があれば中身を見てみてください。</p>
+</aside>
+<aside class="warning"><p>ただし、これらのサンプルはすべてAlexaスキル向けとなっていますので、そのままではGoogle Home向けには動きません。あくまでも参考と考えていただければと思います。</p>
+</aside>
+<aside class="warning"><p>削除したプロジェクトは復旧できませんので、ご注意ください。</p>
+</aside>
+<p>これで準備が整いました。いよいよ次の章からGoogle Home向けのアクションを作っていきます！</p>
+<h2 is-upgraded>おまけ：右下のアイコンは何？</h2>
+<p>ところで、右下にあるこのアイコン、ずっと表示されていますけど、気になりますね。クリックするとどうなるでしょうか？</p>
+<p class="image-container"><img alt="s010" src="img/cca494b938650705.png"></p>
+<p>下からメニューが表示されました。これがVoiceflowのヘルプツールです。チャットサポートに問い合わせしたり、ドキュメントを検索したり、Voiceflowの稼働状況などを知ることができます。わからないこととかはここから問い合わせり調べればいいというわけですね。ただし英語です・・・</p>
+<p class="image-container"><img alt="s011" src="img/92578594d79ae674.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="スキル作成" duration="0">
+        <h2 is-upgraded>プロジェクトの新規作成</h2>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
