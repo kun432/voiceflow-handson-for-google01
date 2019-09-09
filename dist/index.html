@@ -97,7 +97,7 @@
 </aside>
 <aside class="special"><p>サンプルプロジェクトは、アクションの作り方の参考になると思いますので、興味があれば中身を見てみてください。</p>
 </aside>
-<aside class="warning"><p>ただし、これらのサンプルはすべてAlexaスキル向けとなっていますので、そのままではGoogle Home向けには動きません。あくまでも参考と考えていただければと思います。</p>
+<aside class="warning"><p>ただし、これらのサンプルはlexaスキル向けとなっていますので、そのままではGoogle Home向けには動作しない可能性があります。あくまでも参考と考えていただければと思います。</p>
 </aside>
 <aside class="warning"><p>削除したプロジェクトは復旧できませんので、ご注意ください。</p>
 </aside>
@@ -111,8 +111,228 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="スキル作成" duration="0">
-        <h2 is-upgraded>プロジェクトの新規作成</h2>
+      <google-codelab-step label="アクションの作成（STEP1）" duration="0">
+        <h2 is-upgraded>今回作成するサンプルアクションについて</h2>
+<p>今回サンプルで作成するアクションの動作イメージは以下のようなものです。</p>
+<p class="image-container"><img alt="s011-2" src="img/f37f56fd972e9497.png"></p>
+<p>別の動作イメージです。</p>
+<p class="image-container"><img alt="s011-3" src="img/8475aa4ac8d0b2c0.png"></p>
+<h2 is-upgraded>プロジェクトの新規作成</h2>
+<p>では早速プロジェクトを作っていきましょう。&#34;Default List&#34; の下にある&#34;Create Project&#34;をクリックします。</p>
+<p class="image-container"><img alt="s012" src="img/d703988a343ce1aa.png"></p>
+<p>新規プロジェクトの作成画面が開きます。以下を入力します。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>項目</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>入力内容</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Enter your project name</em></p>
+</td><td colspan="1" rowspan="1"><p>プロジェクト名を入れます。&#34;フルーツパーラー&#34;と入力します。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Select Region</em></p>
+</td><td colspan="1" rowspan="1"><p>言語を選択します。&#34;Japanese(JP)&#34;にチェックを入れて、&#34;English(US)&#34;のチェックを外します。</p>
+</td></tr>
+</table>
+<aside class="warning"><p>Voiceflowでプロジェクトを作成すると、デフォルトはAlexa向けプロジェクトとなり、ここで設定する言語設定はAlexa向けのものとなります。Google Home向けプロジェクトでは別途言語設定が必要になりますので、ご注意ください。</p>
+</aside>
+<p>入力したら、&#34;Create Project&#34;をクリックします。</p>
+<p class="image-container"><img alt="s013" src="img/e211fa4dc4167229.png"></p>
+<p>以下の画面が表示されればOKです。</p>
+<p class="image-container"><img alt="s014" src="img/47eaa739536ef9c3.png"></p>
+<h2 is-upgraded>画面の構成</h2>
+<p>最初に画面の構成について説明します。</p>
+<p class="image-container"><img alt="s015" src="img/e2b36ae7ceda0de8.png"></p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>項目</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>入力内容</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Blocksメニュー</em></p>
+</td><td colspan="1" rowspan="1"><p>機能ごとに分けられたBlockが並んでいます。使いたいBlockをここから選びます。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Canvas（キャンバス）</em></p>
+</td><td colspan="1" rowspan="1"><p>Blocksメニューから選んだBlockをここに配置し、線でつなげていくことで会話フローを作っていきます。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Home Block</em></p>
+</td><td colspan="1" rowspan="1"><p>最初から用意されているのがブロックです。ここから会話フローがスタートし、他のBlockにつなげていきます。なお、Home Blockは削除することはできません。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>アップロードボタン</em></p>
+</td><td colspan="1" rowspan="1"><p>作成したプロジェクトをAlexa／Google Homeそれぞれのプラットフォームにアップロードします。アップロードすることでAmazon EchoやGoogle Homeなどのスマートスピーカデバイスから利用可能となります。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Alexa/Google切り替えスイッチ</em></p>
+</td><td colspan="1" rowspan="1"><p>作成したプロジェクトをAlexa向け／Google Home向けに切り替えます。デフォルトはAlexaになっています。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>メニュー切り替え</em></p>
+</td><td colspan="1" rowspan="1"><p>メニューの切り替えを行います。選択できるメニューには、Blocksメニュー/Flowsメニュー/Variablesメニューがあります。ハンズオンの後半で説明します。</p>
+</td></tr>
+</table>
+<p>細かいことは実際に使いながら覚えていきましょう。</p>
+<h2 is-upgraded>AlexaからGoogleへの切り替え</h2>
+<p>プロジェクト新規作成直後は、Alexa向けがデフォルトになっています。今回はGoogle Home向けのプロジェクトなので、最初にAlexaからGoogleに切り替えを行います。</p>
+<p>中央の一番上にあるAlexa/Google切り替えスイッチをクリックしてください。</p>
+<p class="image-container"><img alt="s015-2" src="img/9f7a4ac60d41fe76.png"></p>
+<p>スイッチがGoogleにかわり、右のアップロードボタンが &#34;Upload to Alexa&#34; から &#34;Upload to Google&#34; に変わればOKです。</p>
+<p class="image-container"><img alt="s015-3" src="img/da2479fc6c619ae2.png"></p>
+<aside class="warning"><p>現時点（2019年9月7日）で、VoiceflowはAlexa向けの機能の方が多いです。Google Homeのサポートはまだまだ発展途中だということを予めご了承ください。</p>
+</aside>
+<aside class="warning"><p>AlexaとGoogleの切り替えはいつでも行えますが、切り替えるだけで完全に動作するわけではなく、多数修正が必要になるということを予めご了承ください。現実的な対応としては、どちらかのプラットフォーム向けに作り込んだあとで、プロジェクトをコピーして、もう片方向けに修正していく、つまり、それぞれのプラットフォーム向けで別々のプロジェクトとして管理するのが一般的だと思います。</p>
+</aside>
+<h2 is-upgraded>言語の設定</h2>
+<p>プロジェクト新規作成時に設定した言語はAlexa向けのものとなっていますので、Google Home向けにも、別途言語設定を行います。左上のプロジェクト名の少し下にある&#34;Publish&#34;をクリックします。</p>
+<p class="image-container"><img alt="s015-4" src="img/1a7c1a14038a29da.png"></p>
+<p>言語設定画面が開きます。デフォルトでは、&#34;English(En)&#34;が選択されていますので、&#34;Japanese(Ja)&#34;をクリックします。</p>
+<p class="image-container"><img alt="s015-5" src="img/a699bf3186fbb20e.png"></p>
+<p>&#34;Japanese(Ja)&#34;に切り替わりました。これで言語設定は完了です。左上の&#34;Build&#34;をクリックしてCanvas画面に戻ります。</p>
+<p class="image-container"><img alt="s015-6" src="img/47cfaf19b5f872a1.png"></p>
+<h2 is-upgraded>ブロックの配置</h2>
+<p>では早速やっていきましょう。最初にGoogle Homeから話をさせてみましょう。Google Homeから話をさせるにはSpeak Blockを使います。左のBlockメニューからSpeak Blockをドラッグ＆ドロップで以下のように配置してください。</p>
+<p class="image-container"><img alt="s016" src="img/d606d305a125304e.png"></p>
+<p>右のテキストボックスにGoogle Homeに話させる文章を入力します。ここでは「フルーツパーラーへようこそ。ご注文をどうぞ。」と入力してください。</p>
+<p class="image-container"><img alt="s017" src="img/c688d8a73a42d505.png"></p>
+<p>Home BlockのStartの右端のグレーの四角からドラッグすると線がひけますので、今配置したSpeak Blockの左橋のグレーの四角につなげます。</p>
+<p class="image-container"><img alt="s018" src="img/d70dfb36f33d43ff.png"></p>
+<p>これで会話フローが繋がりました。このように様々なBlockを並べて、Blockの設定をして、線で順につなげていくことで会話フローを作るのがVoiceflowの基本操作になります。かんたんですね！</p>
+<h2 is-upgraded>アップロードとGoogle Home向け連携設定（各プロジェクトの初回のみ）</h2>
+<p>では、早速アップロードして動作するかを確認してみましょう。各プロジェクトの初回アップロード時だけはいろいろ設定の手間がかかるのですが、頑張ってついてきてください！</p>
+<p>&#34;Upload to Google&#34;ボタンをクリックします。</p>
+<p class="image-container"><img alt="s019" src="img/d1dd9c1b2c91b8e3.png"></p>
+<p>Voiceflow から Actions on Google（Googleアシスタントの基本的な管理）へのアクセスに必要な認証トークンを取得します。&#34;Login with Google&#34; をクリックします。</p>
+<p class="image-container"><img alt="s020" src="img/829a6be35babde30.png"></p>
+<p>Googleログイン画面が表示されますので、Voiceflowアカウントと同じGoogleアカウントを選択してログインしてください。</p>
+<p class="image-container"><img alt="s021" src="img/e088f0a4374f8c6c.png"></p>
+<p>アクセス権の許可を求められるので「許可」をクリックします。</p>
+<p class="image-container"><img alt="s022" src="img/fcfbd1cd3e941f2f.png"></p>
+<p>認証トークンが画面に表示されます。右端のコピーアイコンをクリックして、クリップボードにコピーします。</p>
+<p class="image-container"><img alt="s023" src="img/9ea98656757bbdf.png"></p>
+<p>Voiceflowの画面に戻って、&#34;Paste code here&#34;に先程の認証トークンをペーストし、&#34;Verify&#34; をクリックします。</p>
+<p class="image-container"><img alt="s024" src="img/a86c4b837cc77544.png"></p>
+<p>認証に成功すると、次に、Actions on GoogleとDialogFlow(Googleアシスタントの会話部分やバックエンド処理を行う部分、Actions on Googleから処理が渡される) との連携を行います。少しややこしいのですが、最初だけなので頑張りましょう！</p>
+<p>&#34;here&#34; か &#34;Setup tutorial&#34; をクリックします。</p>
+<p class="image-container"><img alt="s025" src="img/404b201113e1c26f.png"></p>
+<p>Voiceflowの<a href="https://learn.voiceflow.com/en/articles/2705386-uploading-your-project-to-google-assistant" target="_blank">Google Home向けセットアップのチュートリアル</a>が開きます。基本的にここに書いてある通りに実施していけばよいのですが、すべて英語で書いてあって辛いと思いますので、ここから日本語で説明していきます！</p>
+<p class="image-container"><img alt="s026" src="img/6529c4f08b98cbe3.png"></p>
+<p>Actions on Google のURL、<a href="https://developers.google.com/actions/" target="_blank">https://developers.google.com/actions/</a> にアクセスします。以下のような画面が表示されるはずです。</p>
+<p class="image-container"><img alt="s027" src="img/cb8276f946fc1314.png"></p>
+<p>このとき、右上にログインしているgmailアカウントが表示されます。このアカウントが先程認証トークンを取得する際にログインしたアカウントと同じであることを確認してください。もし違うアカウントになっていれば、切り替えるか、ログインし直してください。</p>
+<p class="image-container"><img alt="s028" src="img/7f05b76e04ecf1c6.png"></p>
+<aside class="special"><p>本ハンズオンでは、Voiceflowのログインで使用したgmailアカウントを、Actions on GoogleやDialogFlowでも共通で使うことを想定していますので、ここまですべて同じ一つのgmailアカウントを使用しているはずです。</p>
+</aside>
+<aside class="warning"><p>ただし、本ハンズオン用に、普段お使いのgmailアカウントとは別のアカウントをご用意された場合、Actions on GoogleやDialogFlowへのログイン時に、「気づかず」普段のアカウントが選択されている場合がありますのでご注意ください。(その場合、アップロードに失敗する可能性がありますのでご注意ください)</p>
+</aside>
+<p>認証トークン取得に使用したgmailアカウントが選択されていることを確認したら、&#34;GO TO ACTIONS CONSOLE&#34;をクリックします。</p>
+<p class="image-container"><img alt="s029" src="img/26a104b919dfc498.png"></p>
+<p>Actions on Googleの管理画面、「Actions Console」が開きます。まず、Actions Consoleでプロジェクトを作成します。&#34;New Project&#34;をクリックします。</p>
+<p class="image-container"><img alt="s030" src="img/dc053a29effa35e3.png"></p>
+<p>利用規約に同意するかを聞かれます。一番上は、規約に同意するか？なので必ず&#34;Yes&#34;を選択、Country of residence は &#34;Japan&#34; が選択されていることを確認してください。下の2つはお知らせやアンケートの送信に関する許諾なので、どっちでもよいです。同意してすすめるならば&#34;Agree and continue&#34;をクリックします。</p>
+<p class="image-container"><img alt="s031" src="img/5dc8ecf7dcb6f69a.png"></p>
+<p>新しいプロジェクトの作成画面が開きますので、以下の通り設定します。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>項目</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>入力内容</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>project name</em></p>
+</td><td colspan="1" rowspan="1"><p>プロジェクト名を入れます。アルファベット、数字、一部の記号のみになります。日本語は入力できませんのでご注意ください。今回は&#34;fruits-parlor&#34;と入力します。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Choose a language for ・・・</em></p>
+</td><td colspan="1" rowspan="1"><p>言語を選択します。&#34;Japanese&#34;を選択します。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><em>Choose your country or region</em></p>
+</td><td colspan="1" rowspan="1"><p>国を選択します。&#34;Japan&#34;を選択します。</p>
+</td></tr>
+</table>
+<p>設定が終わったら、&#34;Create Project&#34;をクリックします。</p>
+<p class="image-container"><img alt="s032" src="img/67d1e11852d00249.png"></p>
+<p>次にプロジェクトのテンプレートを選択する画面が表示されます。VoiceflowでDialogFlowを使った会話アクションを作成する場合は、一番右下の&#34;Conversational&#34;をクリックします。</p>
+<aside class="warning"><p>Voiceflowでは&#34;Conversational&#34;以外は動作しません。</p>
+</aside>
+<p class="image-container"><img alt="s033" src="img/6d1913b17ef8d6a7.png"></p>
+<p>以下のような画面が表示されればActions on Google上でプロジェクト作成は完了しています。</p>
+<p class="image-container"><img alt="s034" src="img/8c08d47d8bb263c2.png"></p>
+<p>ここからDialogFlowとの連携設定を行っていきます。&#34;Build your Action&#34;をクリックします。</p>
+<p class="image-container"><img alt="s035" src="img/c7aa825cd75b949c.png"></p>
+<p>&#34;Build your Action&#34;のメニューの中の&#34;Add Actions&#34;をクリックします。</p>
+<p class="image-container"><img alt="s036" src="img/dd18683f5ad75cd0.png"></p>
+<p>&#34;Add your first action&#34;をクリックします。</p>
+<p class="image-container"><img alt="s037" src="img/ae6733f8181bdf94.png"></p>
+<p>作成するACTIONを選択する画面が出てきます。&#34;Custom Intent&#34;が選択されていることを確認し、&#34;BUILD&#34;をクリックします。</p>
+<p class="image-container"><img alt="s038" src="img/a36e9e6acb27b0f3.png"></p>
+<p>DialogFlowへのログイン画面が別タブで表示されます。先程まで使用してきたのと同じgmailアカウントを選択してログインします。</p>
+<p class="image-container"><img alt="s039" src="img/fc88150587b39f9d.png"></p>
+<p>アクセス権の許可を求められますので「許可」をクリックします。</p>
+<p class="image-container"><img alt="s040" src="img/c7fa5d106bc28907.png"></p>
+<p>DialogFlowの利用規約が表示されます。&#34;Country or territory&#34;に&#34;Japan&#34;が選択されていることを確認したら、&#34;Terms of Service&#34;のチェックボックスにチェックを入れて、&#34;Accept&#34;をクリックします。（Email preferencesの2つのチェックボックスは、お知らせやアンケートに関する許諾なのでどちらでもかまいません。）</p>
+<p class="image-container"><img alt="s041" src="img/2f83dcadd4d87eb8.png"></p>
+<p>Dialogflowの画面が表示されます。</p>
+<p class="image-container"><img alt="s043" src="img/902bd497c3278010.png"></p>
+<p>以下の点を「必ず」確認して下さい。</p>
+<ul>
+<li>Actions on Googleで設定したプロジェクト名が「自動」で設定されていること</li>
+<li>GOOGLE PROJECTのところに&#34;Agent will be linked with 〜&#34; という記載で、Actions on Googleで作成したプロジェクト名が表示されていること</li>
+</ul>
+<p>上記が正しく設定されていれば、Actions on GoogleとDialogflowの連携が正しく設定されていますので、DEFAULT TIMEZONEが&#34;Asia/Tokyo&#34;となっていることを確認の上、DEFAULT LANGUAGE を &#34;Japanese - ja&#34;を選択して、&#34;CREATE&#34;をクリックします。</p>
+<aside class="warning"><p>この2点が設定されていない、または、以下のようなDialogFlowのTOP画面が表示された場合、Actions on GoogleとDialogflowの連携が正しくできていない可能性があります。<br>【Actions on Googleの設定が正しく連携されていない】<br><img alt="s044" src="img/46f8418e1844bdda.png"><br>【DialogflowのTOPページが表示される】<br><img alt="s042" src="img/39a22828e0617738.png"><br>この場合は、Dialogflowのタブを閉じて、Actions on Googleのタブに戻り、&#34;Add yoru first action&#34;をクリックしてみてください。（再度ログインやアクセス権の許可が求められるかもしれませんが、そのまま進めれば正しく連携されると思います。）<br><img alt="s037" src="img/ae6733f8181bdf94.png"><br>それでも変わらない場合、Actions on Googleとは異なるgmailアカウントでログインしている可能性も考えられますので、一旦DialogFlowからログアウトしてみてください。</p>
+</aside>
+<p>Dialogflowで正しくアクションが作成されると以下のようになります。左上のプロジェクト名の横にある、歯車アイコンをクリックしてください。</p>
+<p class="image-container"><img alt="s045" src="img/a932fc9305e71edb.png"></p>
+<p>設定画面が表示されるので、&#34;Service Account&#34; に記載されているアカウントのリンクをクリックします。ここからはGoogle Cloud Platformでの操作となります。</p>
+<p class="image-container"><img alt="s046" src="img/b75d9424e48ab805.png"></p>
+<p>Google Cloud Platformに初めてログインされる場合は、利用規約への同意を求められますので、利用規約への同意にチェックを入れ、居住国に「日本」が選択されていることを確認の上、「同意して続行」をクリックします。</p>
+<p class="image-container"><img alt="s047" src="img/680aa366103bab46.png"></p>
+<aside class="warning"><p>Google Cloud Platformログイン時に「権限がない」というエラーが出る場合があります。その場合は、異なるgmailアカウントで既にGoogle Cloud Platformにログインしている可能性がありますので、これまで使用してきたgmailアカウントに切り替えてください。</p>
+</aside>
+<p>Google Cloud Platformの「IAMと管理」という管理画面が表示されたら、真ん中上部にある「＋ サービスアカウントを作成」をクリックします。</p>
+<p class="image-container"><img alt="s048" src="img/af5d286c58f1b9c5.png"></p>
+<p>「サービスアカウント名」に&#34;Voiceflow Creator Tool&#34;と入力し、「作成」をクリックします。</p>
+<p class="image-container"><img alt="s049" src="img/eeadc02a95c57757.png"></p>
+<p>次に「サービスアカウントの権限」を設定します。「役割を選択」をクリックして・・・</p>
+<p class="image-container"><img alt="s050" src="img/faeeba0b108e81a9.png"></p>
+<p>出てきたメニューの一番上で&#34;Dialog&#34;と入力すると表示される「Dialogflow API管理者」を選択します。</p>
+<p class="image-container"><img alt="s051" src="img/bbc46ebd279add83.png"></p>
+<p>&#34;続行&#34;をクリックします。</p>
+<p class="image-container"><img alt="s052" src="img/2fa8497b30aa4db4.png"></p>
+<p>以下の画面が表示されますので、「キーの作成」をクリックします、</p>
+<p class="image-container"><img alt="s053" src="img/bcabe8d870795b45.png"></p>
+<p>キー作成メニューが表示されるので、キーのタイプは「JSON」を選択して、「作成」をクリックします。</p>
+<p class="image-container"><img alt="s054" src="img/6352d9a2bcdccf67.png"></p>
+<p>キーファイルがダウンロードされます。これがVoiceflowとの連携に必要です。</p>
+<aside class="warning"><p>キーファイルは安全な場所に保管するようにしてください。</p>
+</aside>
+<p class="image-container"><img alt="s055" src="img/44b9357f4b133af5.png"></p>
+<p>サービスアカウント作成画面の一番下の「完了」をクリックします。</p>
+<p class="image-container"><img alt="s056" src="img/5f44cd427c794dd2.png"></p>
+<p>Voiceflowに戻り、先程取得したキーファイルをドラッグ＆ドロップでアップロードします。</p>
+<p class="image-container"><img alt="s057" src="img/bdaccb07797ae56f.png"></p>
+<p>&#34;Successfully Uploaded&#34; と表示されていればキーファイルが正しくアップロードされています。これでVoiceflowとGoogleの連携は完了です。ほんと、お疲れさまでした！</p>
+<h2 is-upgraded>テスト</h2>
+<p>では、いよいよアクションをアップロードして、Google側でテストします。&#34;Upload&#34;をクリックします。</p>
+<p class="image-container"><img alt="s058" src="img/af76a17e8b3c4409.png"></p>
+<p>アップロードが行われます。100%になるまで待ちます。</p>
+<p class="image-container"><img alt="s059" src="img/6d5fe849987fb3b8.png"></p>
+<p>&#34;Action Upload Successful&#34;と表示されれば、アップロードは完了しています！ &#34;Google Action Simulator&#34; をクリックします。</p>
+<p class="image-container"><img alt="s060" src="img/bd06156e280c64d8.png"></p>
+<p>別のタブでGoogleのシミュレータが起動します。初回起動時は以下のような画面が表示されますので、&#34;VERSION - Draft&#34;が選択されていることを確認して、&#34;Done&#34;をクリックします。</p>
+<p class="image-container"><img alt="s061" src="img/2f809dbebf8e8bcd.png"></p>
+<p>これがGoogleのシミュレータです。左が会話をテストするためのシミュレータになっていて、右側は、シミュレータの結果の詳細（スマホのGoogleアシスタントやNest Hubなど画面表示が可能なデバイスの場合の画面表示や、実際に行われているリクエストやレスポンスなど）を表示する場所になっています。</p>
+<p class="image-container"><img alt="s062" src="img/d5e281338ed370de.png"></p>
+<p>ではテストを行ってみましょう。左のシミュレータの一番下に、会話内容を入力するか、マイクをクリックして実際に発話することでテストが行なえます。</p>
+<aside class="special"><p>なお、Googleの場合、標準では「テスト用アプリ」というアクション名になります。これは後で変更します。</p>
+</aside>
+<p>すでにアクションを起動するための発話が入力されているので、そのままENTERを押すか、マイクをクリックして実際にアクションを起動してみてください。</p>
+<p class="image-container"><img alt="s063" src="img/19ee1b72116d4069.png"></p>
+<p>最初にSpeak Blockに設定した文章が音声が流れましたか？画面の方にも同じ内容が表示されていればテストは成功です。</p>
+<p class="image-container"><img alt="s064" src="img/4f6e10ac01d935fe.png"></p>
+<aside class="special"><p>Googleの場合、開発中のアクションを実行すると、必ず「〜のテストバージョンです」というセリフが最初に流れるようになっています。アクションを申請・公開するとこのセリフは発話されなくなります。</p>
+</aside>
+<p>はい、これでVoiceflowとGoogleの連携設定が完了し、Voiceflowで開発した内容を、Googleにアップロードしてテストできるようになりました。ほんと、お疲れさまでした！</p>
+<p>現時点では、VoiceflowのGoogle Home向けサポートは、Alexa向けに比べるとまだまだ発展途中なこともあって、各プロジェクトの初回連携設定に非常に手間がかかるのですが、設定してしまえば以降はアップロードしてテストするだけですし、Googleの高い音声認識精度や、AlexaにはないGoogle独自の面白い機能もあります。ぜひ活用してみてください。</p>
+<p>では引き続きアクションを作成していきましょう。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="アクションの作成（STEP2）" duration="0">
+        <p>ではアクションの作成を続けていきましょう。</p>
 
 
       </google-codelab-step>
