@@ -327,6 +327,21 @@
 <p>はい、これでVoiceflowとGoogleの連携設定が完了し、Voiceflowで開発した内容を、Googleにアップロードしてテストできるようになりました。ほんと、お疲れさまでした！</p>
 <p>現時点では、VoiceflowのGoogle Home向けサポートは、Alexa向けに比べるとまだまだ発展途中なこともあって、各プロジェクトの初回連携設定に非常に手間がかかるのですが、設定してしまえば以降はアップロードしてテストするだけですし、Googleの高い音声認識精度や、AlexaにはないGoogle独自の面白い機能もあります。ぜひ活用してみてください。</p>
 <p>では引き続きアクションを作成していきましょう。</p>
+<h2 is-upgraded>おまけ：Voiceflowのテスト機能</h2>
+<p>実は、Google上でテストしなくても、Voiceflowにもテスト機能がありますので、少しご紹介します。</p>
+<p>左上にある&#34;Test&#34;をクリックします。</p>
+<p class="image-container"><img alt="s065" src="img/86e2f858b136286f.png"></p>
+<p>画面が変わりましたね。右上の&#34;Start Test&#34;ボタンをクリックします。</p>
+<p class="image-container"><img alt="s066" src="img/c73f0d6c84243d71.png"></p>
+<p>右のメニューでアクションが実行されたのがわかるでしょうか。まだSpeak Blockを一つしかおいてないのでテストがすぐに終わってしまいますが、もっとブロックを並べていくと、ユーザとの会話のやり取りを実際に喋りながら（マイクも使えます）のテストもできますし、変数（後ほどご紹介します）の中身を確認しながらテストを行うデバッグモードなんかもあります。</p>
+<p class="image-container"><img alt="s067" src="img/696c9b56a9eacb0e.png"></p>
+<p>ただし、以下のような注意点があります。</p>
+<aside class="warning"><p>Voiceflowのテストで使用される音声は、実際にGoogle Homeがしゃべる音声とは異なり、またイントネーションなども変わります。実際の印象と比べると、かなり印象が変わります。<br>Negative</p>
+</aside>
+<p>実際にGoogle Homeを使う場合とは環境が異なりますので、完全に同じテストができるわけではありません。Voiceflowのテストでは動いたけど、Googleのテストでは動かない、またはその逆、ということもあります。</p>
+<p>これらの理由から、Voiceflowのテストはあくまでも簡単な動作確認などにとどめて、正確なテストはActons on Google，もしくは、実機で行うようにしてください。</p>
+<p>テストを終わる場合は、左上の&#34;Back&#34;をクリックしてください。Canvas画面に戻ります。</p>
+<p class="image-container"><img alt="s068" src="img/641749626cbe6205.png"></p>
 
 
       </google-codelab-step>
