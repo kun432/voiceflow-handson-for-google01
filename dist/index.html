@@ -114,7 +114,7 @@
       <google-codelab-step label="アクションの作成（STEP1）" duration="0">
         <h2 is-upgraded>今回作成するサンプルアクションについて</h2>
 <p>今回のハンズオンでサンプルとして作成するアクションの動作イメージは以下のようなものです。</p>
-<p class="image-container"><img alt="s011-2" src="img/f37f56fd972e9497.png"></p>
+<p class="image-container"><img alt="s011-2" src="img/c4b628a5a0fa113f.png"></p>
 <ul>
 <li>ユーザが飲み物を注文します。</li>
 <li>ユーザは１回の注文で、１つの飲み物しか指定できないこととします.</li>
@@ -154,13 +154,13 @@
 </td><td colspan="1" rowspan="1"><p><strong>入力内容</strong></p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><em>Blocksメニュー</em></p>
-</td><td colspan="1" rowspan="1"><p>機能ごとに分けられたBlockが並んでいます。使いたいBlockをここから選びます。</p>
+</td><td colspan="1" rowspan="1"><p>機能ごとに分けられたブロックが並んでいます。使いたいブロックをここから選びます。</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><em>Canvas（キャンバス）</em></p>
-</td><td colspan="1" rowspan="1"><p>Blocksメニューから選んだBlockをここに配置し、線でつなげていくことで会話フローを作っていきます。</p>
+</td><td colspan="1" rowspan="1"><p>Blocksメニューから選んだブロックをここに配置し、線でつなげていくことで会話フローを作っていきます。</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><em>Home Block</em></p>
-</td><td colspan="1" rowspan="1"><p>最初から用意されているのがブロックです。ここから会話フローがスタートし、他のBlockにつなげていきます。なお、Home Blockは削除することはできません。</p>
+</td><td colspan="1" rowspan="1"><p>最初から用意されているのがブロックです。ここから会話フローがスタートし、他のブロックにつなげていきます。なお、Home Blockは削除することはできません。</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><em>アップロードボタン</em></p>
 </td><td colspan="1" rowspan="1"><p>作成したプロジェクトをAlexa／Google Homeそれぞれのプラットフォームにアップロードします。アップロードすることでAmazon EchoやGoogle Homeなどのスマートスピーカデバイスから利用可能となります。</p>
@@ -193,11 +193,13 @@
 <h2 is-upgraded>ブロックの配置</h2>
 <p>では早速やっていきましょう。最初にGoogle Homeから話をさせてみましょう。Google Homeから話をさせるにはSpeak Blockを使います。左のBlockメニューからSpeak Blockをドラッグ＆ドロップで以下のように配置してください。</p>
 <p class="image-container"><img alt="s016" src="img/d606d305a125304e.png"></p>
-<p>右のテキストボックスにGoogle Homeに話させる文章を入力します。ここでは「フルーツパーラーへようこそ。ご注文をどうぞ。」と入力してください。</p>
+<p>右のテキストボックスにGoogle Homeに話させる文章を入力します。以下の文章を入力してください。（コピペしてOKですよ！）</p>
+<pre><code>フルーツパーラーへようこそ。ご注文をどうぞ。
+</code></pre>
 <p class="image-container"><img alt="s017" src="img/c688d8a73a42d505.png"></p>
 <p>Home BlockのStartの右端のグレーの四角からドラッグすると線がひけますので、今配置したSpeak Blockの左橋のグレーの四角につなげます。</p>
 <p class="image-container"><img alt="s018" src="img/d70dfb36f33d43ff.png"></p>
-<p>これで会話フローが繋がりました。このように様々なBlockを並べて、Blockの設定をして、線で順につなげていくことで会話フローを作るのがVoiceflowの基本操作になります。かんたんですね！</p>
+<p>これで会話フローが繋がりました。このように様々なブロックを並べて、設定をして、線で順につなげていくことで会話フローを作るのがVoiceflowの基本操作になります。かんたんですね！</p>
 <h2 is-upgraded>アップロードとGoogle Home向け連携設定（各プロジェクトの初回のみ）</h2>
 <p>では、早速アップロードして動作するかを確認してみましょう。各プロジェクトの初回アップロード時だけはいろいろ設定の手間がかかるのですが、頑張ってついてきてください！</p>
 <p>&#34;Upload to Google&#34;ボタンをクリックします。</p>
@@ -380,9 +382,9 @@
 <h2 is-upgraded>ユーザの発話を取得する</h2>
 <p>ではアクションの作成を続けていきましょう。</p>
 <p>ここまでで、アクションを起動後、「ご注文をどうぞ」とGoogle Homeが聞いてくるところまではできていますので、次はユーザからの発話を取得するところです。</p>
-<p class="image-container"><img alt="s207" src="img/4424202ffaba4d51.png"></p>
-<p>ユーザからの発話を受け取るためのBlockは複数ありますが、今回は「Interaction Block」を使用します。</p>
-<aside class="warning"><p>ユーザからの発話を受け取るためのBlockは、Interaction Blockの他にも、Capture BlockやChoice Blockなどがあります。今回のような複数の選択肢でGoogle Homeからの回答を変えたいような場合は、Choice Blockを使ったほうがシンプルに実現できるのですが、残念ながらChoice Blockには不具合があり、正しく動作しないことがあるため、Interaction Blockを採用しています。（将来的に修正される可能性はあります。）</p>
+<p class="image-container"><img alt="s207" src="img/13c64e2966dedb38.png"></p>
+<p>ユーザからの発話を受け取るためのブロックは複数ありますが、今回は「Interaction Block」を使用します。</p>
+<aside class="warning"><p>ユーザからの発話を受け取るためのブロックは、Interaction Blockの他にも、Capture BlockやChoice Blockなどがあります。今回のような複数の選択肢でGoogle Homeからの回答を変えたいような場合は、Choice Blockを使ったほうがシンプルに実現できるのですが、残念ながらChoice Blockには不具合があり、正しく動作しないことがあるため、Interaction Blockを採用しています。（将来的に修正される可能性はあります。）</p>
 </aside>
 <aside class="special"><p>Interaction Blockのほうが判定精度が高く、より柔軟な会話フローの制御ができるため、今後のスキル開発を進めていく上でもChoice Blockよりおすすめです。</p>
 </aside>
@@ -417,22 +419,22 @@
 <li>曲再生インテント：→「○○○の曲をかけて」というと、その曲を再生してくれる</li>
 </ul>
 <p>という感じになります。では、今回のサンプルの中でユーザがやりたいことってなんでしょうか？</p>
-<p class="image-container"><img alt="s011-2" src="img/f37f56fd972e9497.png"></p>
+<p class="image-container"><img alt="s011-2" src="img/c4b628a5a0fa113f.png"></p>
 <p>はい、「オレンジジュースを注文したい」がインテントになりますね。このインテントに対して、注文をうけて金額を回答するというのが今回作成するアクションになります（実際にオレンジジュースを出すのはスマートスピーカーにはできないので人の手が必要ですが・・・）。</p>
 <p>このように、ユーザがやりたい「インテント」を用意して、それに応じた処理を作っていく、というのが、VUI／スマートスピーカーアプリ開発の基本的な流れになりますので、まずはこの考え方に慣れるようにしてくださいね。</p>
 <h3 is-upgraded>フレーズ/サンプル発話</h3>
 <p>インテントについては理解できたと思います。が、少し考えてみてください。「オレンジジュースを注文したい」というインテントに対して、あなたが実際にお店に行ったとき、どう話しますか？</p>
 <ul>
-<li>「オレンジジュースをください」</li>
-<li>「オレンジジュースください」</li>
-<li>「オレンジジュースをお願いします」</li>
-<li>「オレンジジュースお願いします」</li>
-<li>「オレンジジュースをお願い」</li>
-<li>「オレンジジュースお願い」</li>
 <li>「オレンジジュースをちょうだい」</li>
-<li>「オレンジジュースちょうだい」</li>
-<li>「オレンジジュースで」</li>
+<li>「オレンジジュースをください」</li>
+<li>「オレンジジュースをお願いします」</li>
+<li>「オレンジジュースをお願い」</li>
 <li>「オレンジジュース」</li>
+<li>「オレンジジュースちょうだい」</li>
+<li>「オレンジジュースください」</li>
+<li>「オレンジジュースお願いします」</li>
+<li>「オレンジジュースお願い」</li>
+<li>「オレンジジュースで」</li>
 </ul>
 <p>同じ「インテント」なのにいろんな言い方がありますよね。このように、一つの「インテント」に対して、ユーザが実際に発話するバリエーションのことを「フレーズ」「サンプル発話」といいます。</p>
 <p>人間の会話の中では些細な違いですが、コンピュータにとっては１文字違うだけで別のデータになります。GoogleやAmazonは、AIやビッグデータを駆使して、こういったバリエーションの違いなども同じインテントとして正しく理解できるように改善を進めていますが、現時点ではまだまだ完璧ではありません。</p>
@@ -442,11 +444,141 @@
 <p>Netagiveただし、正しく解釈されるかどうかはやってみないとわからないところもあるので、なるべく多く登録しておくことをおすすめします。</p>
 <h3 is-upgraded>エンティティ/スロット</h3>
 <p>本チャプターで作成するアクションでは、エンティティ/スロットを扱いませんので、説明を割愛します。次のChapterで、エンティティ/スロットを使って、サンプルスキルを更に改修していきますので、その際に説明します。</p>
-<h2 is-upgraded>インテントの登録</h2>
+<h2 is-upgraded>インテントとサンプル発話の登録</h2>
 <p>VUIの基本的な考え方がわかったところで、アクションの作成に戻りましょう。Interaction Blockを配置して、&#34;Intents&#34;のタブを開いたところでしたよね。</p>
 <p class="image-container"><img alt="s209" src="img/3b43671bdefa4e18.png"></p>
 <p>もうおわかりかと思いますが、ここで「インテント」の設定を行います。初期状態ではインテントが一つもない状態なので、インテントを追加していきましょう。&#34;+ Add Intent&#34;をクリックします。</p>
 <p class="image-container"><img alt="s210" src="img/2991814c30eeeba9.png"></p>
+<p>インテントの設定項目が出てきます。ではインテントを作成していきます。</p>
+<p class="image-container"><img alt="s211" src="img/41f8390e755d1066.png"></p>
+<p>ハンズオンの最初に、今回作成するアクションの要件を以下のように決めていました。</p>
+<pre><code>・注文できる飲み物は、オレンジジュース、ミックスジュース、アップルジュースの３種類とします。
+</code></pre>
+<p>つまり、今回のインテントは、以下の３つを作成していくことになりますね。</p>
+<ul>
+<li>オレンジジュースを注文する</li>
+<li>ミックスジュースを注文する</li>
+<li>アップルジュースを注文する</li>
+</ul>
+<p>では、順にやっていきます。まず「インテント名」をつけます。&#34;intent_one&#34;と書いてあるところを&#34;orange_intent&#34;と変更してください。</p>
+<p class="image-container"><img alt="s212" src="img/87d576099f9c161d.png"></p>
+<p>さらに、インテントに紐づくフレーズを入力していきます。&#34;Enter user reply&#34;と書いてある入力欄に、オレンジジュースを注文するときにユーザが言いそうな発話例を入力していきます。「オレンジジュースをちょうだい」と入力して、ENTERを押すと・・・</p>
+<p class="image-container"><img alt="s213" src="img/177318adf1487085.png"></p>
+<p>はい、orange_intentにフレーズが登録されました。</p>
+<p class="image-container"><img alt="s214" src="img/fdb0fe6292486dce.png"></p>
+<p>フレーズをたくさん登録すると様々なユーザの発話バリエーションに対応できるのでしたよね。同じ要領で、続けて以下のサンプル発話も登録してみてください。</p>
+<pre><code>オレンジジュースをください
+オレンジジュースをお願いします
+オレンジジュースをお願い
+オレンジジュース
+</code></pre>
+<p>もっとたくさん登録できますが、とりあえず５つほどにしておきましょう。最終的にはこんな感じになります。</p>
+<p class="image-container"><img alt="s215" src="img/8bb7b4cd9bdeec83.png"></p>
+<p>続けて、ミックスジュースを注文するインテントです。今登録したorange_intentの上の&#34;+ Add Intent&#34;をもう一度クリックします。</p>
+<p class="image-container"><img alt="s216" src="img/f2b7249124e23b59.png"></p>
+<p>最初に&#34;+ Add Intent&#34;を追加したときと同じように、インテントの設定項目が出てきます。あとはわかりますよね？？？</p>
+<p class="image-container"><img alt="s217" src="img/b457239d6357b686.png"></p>
+<p>以下のように設定してみてください。</p>
+<h4 is-upgraded>インテント名</h4>
+<pre><code>mix_intent
+</code></pre>
+<h4 is-upgraded>フレーズ</h4>
+<pre><code>ミックスジュースをちょうだい
+ミックスジュースをください
+ミックスジュースをお願いします
+ミックスジュースをお願い
+ミックスジュース
+</code></pre>
+<p>こんな感じになればOKです。</p>
+<p class="image-container"><img alt="s218" src="img/2c30d0906cb57207.png"></p>
+<p>更にアップルジュース用のインテントを追加します。もうやり方は分かりますよね？ここは説明しません。下にコピペ用のテキストを用意しておきますので、各自でやってみてください!</p>
+<h4 is-upgraded>インテント名</h4>
+<pre><code>apple_intent
+</code></pre>
+<h4 is-upgraded>フレーズ</h4>
+<pre><code>アップルジュースをちょうだい
+アップルジュースをください
+アップルジュースをお願いします
+アップルジュースをお願い
+アップルジュース
+</code></pre>
+<p>最終的に３つのインテントを登録するとこんな感じになります。どうでしょうか？同じになっていますか？</p>
+<p class="image-container"><img alt="s219" src="img/e063585b84037bac.png"></p>
+<p>これで、インテントとフレーズの設定が終わりました。フレーズに登録された発話をユーザが行うと、それぞれのインテントに紐付けられますので、次はこれをインテントごとに分岐させて会話フローを作っていきます。&#34;Choices&#34;タブをクリックしてください。</p>
+<p class="image-container"><img alt="s220" src="img/5ff9ad869527fd63.png"></p>
+<p>&#34;Choices&#34;タブでは、各インテントごとの会話フローの「分岐（Choice）」を作成します。&#34;+ Add Choice&#34;をクリックしてみてください。</p>
+<p class="image-container"><img alt="s221" src="img/853ec7ee4b2bc2c6.png"></p>
+<p>Interaction Blockに&#34;1&#34;というグレーの四角が追加されたのがわかりますか？このBlockにあるグレーの四角同士をつなげることで会話のフローを作っていくのでしたよね。つまりこれでまずブロックを繋げていくための「分岐」が作成されたことになります。</p>
+<p class="image-container"><img alt="s222" src="img/6e127f20a2dd8890.png"></p>
+<p>さらに、右のメニューでは、その番号にマッチした数字とインテントを選択するためのドロップダウンリストが表示されています。ここでインテントを選択することで、インテントごとに分岐する会話フローができるというわけですね！</p>
+<p class="image-container"><img alt="s223" src="img/37af8919ad892618.png"></p>
+<p>さっそくインテントを設定しましょう。ドロップダウンリストから、&#34;orange_intent&#34;を選択してください。</p>
+<p class="image-container"><img alt="s224" src="img/cf3e4240710a3b11.png"></p>
+<p>同じように、&#34;+ Add Choice&#34;をクリックして、それぞれにインテントを選択していきます。最終的にはこうなればOKです。</p>
+<p class="image-container"><img alt="s225" src="img/edaf30d7af8a1465.png"></p>
+<p>それぞれの分岐は以下のようになります。</p>
+<ol type="1">
+<li>オレンジジュースを注文した場合</li>
+<li>ミックスジュースを注文した場合</li>
+<li>アップルジュースを注文した場合</li>
+</ol>
+<p>あとは、それぞれの分岐に応じた、発話を用意すればOKですね！Speak Blockを3つドラッグ＆ドロップで配置して、Interaction Blockの各分岐とつなげてみてください。</p>
+<p class="image-container"><img alt="s226" src="img/9c9e2c29c32f747b.png"></p>
+<p>続けて、それぞれのSpeak Blockをクリックして、Google Homeからの発話内容を入力していきます。Interaction Blockで設定したそれぞれのインテントにあった内容になるように入力してください。</p>
+<h4 is-upgraded>1. オレンジジュースを注文した場合</h4>
+<pre><code>オレンジジュースですね。350円になります。ありがとうございました。
+</code></pre>
+<p class="image-container"><img alt="s227-01" src="img/1b7bd2f6843f8de2.png"></p>
+<h4 is-upgraded>2. ミックスジュースを注文した場合</h4>
+<pre><code>ミックスジュースですね。450円になります。ありがとうございました。
+</code></pre>
+<p class="image-container"><img alt="s227-02" src="img/a1c5420236473f1d.png"></p>
+<h4 is-upgraded>3. アップルジュースを注文した場合</h4>
+<pre><code>アップルジュースですね。400円になります。ありがとうございました。
+</code></pre>
+<p class="image-container"><img alt="s227-03" src="img/72ad2747641501b.png"></p>
+<p>はい、これで、今回のサンプルアクションが最初に想定していた内容はすべて完了しました！おつかれさまでした！</p>
+<h2 is-upgraded>想定していない発話の場合</h2>
+<p>・・・と言いたいところですが、もう一つだけ、やっておくべきことがあります。</p>
+<p>今回のアクションでは、以下の注文を受け付けることができますよね。</p>
+<ul>
+<li>オレンジジュース</li>
+<li>ミックスジュース</li>
+<li>アップルジュース</li>
+</ul>
+<p>もし用意していないメニューを言われた場合、どうなるでしょうか？実際のお店でもそういうことってありますよね？そういう「想定外」の発話を受け取った場合の処理も予め用意しておく必要があります。Interaction Blockを見てください。</p>
+<p class="image-container"><img alt="s228" src="img/9506dda2e21e5dcc.png"></p>
+<p>一つだけ「Else」と書かれた分岐だけどこにもつながっていないですよね？この「Else」が、どのインテントにも合致しない発話が行われた場合に分岐する会話フローとなっているのです。したがって、ここからSpeak Blockにつなげて、「あいにく取り扱っておりません」というような発話をさせればよいというわけです。早速やってみましょう。</p>
+<p>Speak Blockをおいて、Interaction Blockの&#34;Else&#34;から線でつなげてください。</p>
+<p class="image-container"><img alt="s229" src="img/53865087b802dfee.png"></p>
+<p>そしてSpeak Blockに以下の内容を入力します。</p>
+<pre><code>申し訳ありません、よくわかりませんでした。ご注文は、オレンジジュース、ミックスジュース、アップルジュースから選んでいただけますか？ご注文をどうぞ。
+</code></pre>
+<p>こんな感じになります。</p>
+<p class="image-container"><img alt="s230" src="img/4a1cab3e59c71ab6.png"></p>
+<p>さらにSpeak BlockからInteraction Blockに線をつなげます。これで想定していない場合は、受付できる注文を説明して、ユーザを想定している注文に誘導しつつ、再度ユーザからの注文を受け付けることができるわけですね。</p>
+<p class="image-container"><img alt="s231" src="img/455e7a65504e1e95.png"></p>
+<p>はい、これで、本当に今回のサンプルアクションの作成はは完了です！テストして正しくどうするかを確認してみましょう！</p>
+<h2 is-upgraded>テスト</h2>
+<p>では、アップロードして、Actions on Googleのシミュレータを開いて、テストしてみてください。正しく動作するでしょうか？</p>
+<p class="image-container"><img alt="s060" src="img/bd06156e280c64d8.png"></p>
+<p class="image-container"><img alt="s232" src="img/df014cd164703fcd.png"></p>
+<p>想定していない場合はもう一度聞き直して、想定しているものはちゃんと回答ができていますね！実機でも確認できますので、ぜひ試してみてください！</p>
+<p>これでサンプルスキルの作成は完了です！ほんとうにお疲れさまでした！</p>
+<h2 is-upgraded>おまけ：Google Homeの音声を変える</h2>
+<p>デフォルトだと、Google Homeから流れてくる声は少し高めの女性の声になっていると思いますが、実はこの声を変更することができます！</p>
+<p>声の変更は、Actions on Googleで行います。Voiceflowから一度アップロードを行い、Actions on Googleのテスト画面を開いてください。</p>
+<p class="image-container"><img alt="s060" src="img/bd06156e280c64d8.png"></p>
+<p>テスト画面が開いたら、一番上のメニューの中にある&#34;Develop&#34;をクリックします。</p>
+<p class="image-container"><img alt="s201" src="img/db801c3c3ebcdb7a.png"></p>
+<p>Invocation（呼び出し）の設定画面が開きます。下の方にあるGoogle Assistant voiceをみてください。</p>
+<p class="image-container"><img alt="s233" src="img/123ac8143f57c60.png"></p>
+<p>デフォルトでは&#34;Female 1&#34;が選択されていると思います。つまり、女性の声ですね。ドロップダウンリストを開くと、女性の声がもう１パターン（Female 2）とあと男性の声が２パターン（Male 1/Make 2）用意されていますので、どれか選択します。</p>
+<p class="image-container"><img alt="s234" src="img/c082738642831f52.png"></p>
+<p>最後に右上の&#34;Save&#34;をクリックして、保存してください</p>
+<p class="image-container"><img alt="s235" src="img/f594cac8a74c6732.png"></p>
+<p>再度、上のメニューから&#34;Test&#34;をクリックして、シミュレータを開きテストしてみてください。どういう声になるかは実際にやってみてのお楽しみです！</p>
+<p class="image-container"><img alt="s236" src="img/4d471b939e67653d.png"></p>
 
 
       </google-codelab-step>
