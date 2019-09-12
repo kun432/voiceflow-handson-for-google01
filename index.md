@@ -30,6 +30,9 @@ Voiceflowを使った、ノンコーディングで始めるGoogle Home向けア
 ### 注意
 
 Negative
+: <b>まだ作成途中です！今後内容が変わる可能性がありますのでご注意ください。</b>
+
+Negative
 : 本手順書は2019年9月7日時点のものですが、Voiceflowの開発はかなり活発なので、本手順書通りに進めてもうまくいかない場合や画面が変更されている場合があります。
 
 Negative
@@ -39,7 +42,10 @@ Negative
 : 現時点（2019年9月7日）で、VoiceflowはAlexa向けの機能の方が多いです。Google Homeのサポートはまだまだ発展途中だということを予めご了承ください。
 
 Positive
-: 不具合やお気づきの点があれば、kun432.8d1w@gmail.comまで。
+: 不具合やお気づきの点があれば、[https://github.com/kun432/voiceflow-handson-for-google01/issues](https://github.com/kun432/voiceflow-handson-for-google01/issues)でissue立てていただければと思います。PRも歓迎！
+
+Positive
+: もしくはkun432.8d1w@gmail.comまで
 
 ### 更新履歴
 
