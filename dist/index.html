@@ -39,13 +39,17 @@
 <li>とりあえず始めてみたい方</li>
 </ul>
 <h2 is-upgraded>注意</h2>
+<aside class="warning"><p><strong>まだ作成途中です！今後内容が変わる可能性がありますのでご注意ください。</strong></p>
+</aside>
 <aside class="warning"><p>本手順書は2019年9月7日時点のものですが、Voiceflowの開発はかなり活発なので、本手順書通りに進めてもうまくいかない場合や画面が変更されている場合があります。</p>
 </aside>
 <aside class="warning"><p>Voiceflowは、一部日本語がうまく扱えないところがあります。そのため、回避策的なやり方で進める場合がありますが、ご了承ください。そのうち改善されるかもしれません。</p>
 </aside>
 <aside class="warning"><p>現時点（2019年9月7日）で、VoiceflowはAlexa向けの機能の方が多いです。Google Homeのサポートはまだまだ発展途中だということを予めご了承ください。</p>
 </aside>
-<aside class="special"><p>不具合やお気づきの点があれば、kun432.8d1w@gmail.comまで。</p>
+<aside class="special"><p>不具合やお気づきの点があれば、<a href="https://github.com/kun432/voiceflow-handson-for-google01/issues" target="_blank">https://github.com/kun432/voiceflow-handson-for-google01/issues</a>でissue立てていただければと思います。PRも歓迎！</p>
+</aside>
+<aside class="special"><p>もしくはkun432.8d1w@gmail.comまで</p>
 </aside>
 <h2 is-upgraded>更新履歴</h2>
 <ul>
@@ -378,7 +382,24 @@
 <p class="image-container"><img alt="s204" src="img/daa93455d98ba95d.png"></p>
 <p>マイクが赤く点滅しているときが待受状態になります。Google Homeの場合は、「〜につないで」でアクションが起動しますので、マイクに向かって「フルーツパーラーにつないで」と言ってみてください。</p>
 <p class="image-container"><img alt="s205" src="img/4d6a05b34b1094b5.png"></p>
-<p>はい、これで設定した呼び出し名でアクションが起動するようになりました！以降のテストでは新しい呼び出し名で呼び出してテストしてください。</p>
+<p>設定した呼び出し名でアクションが起動してますね！</p>
+<p class="image-container"><img alt="s206" src="img/9ae5de9dc4f4eb71.png"></p>
+<p>これで呼び出し名の変更は完了です。以降のテストでは新しい呼び出し名で呼び出してテストしてください。</p>
+<h2 is-upgraded>言語設定の変更</h2>
+<p>ついでにもう一つ、Actions on Googleの呼び出し名の設定画面を開いてください。（Actions on Googleの上のメニューの&#34;Develop&#34;をクリックしてください）</p>
+<p class="image-container"><img alt="s206-01" src="img/9ba87e8b35831299.png"></p>
+<p>呼び出し名の上の&#34;Japanese&#34;の横に&#34;English&#34;も表示されていますね？</p>
+<p class="image-container"><img alt="s206-02" src="img/696c1b00c59d3ef0.png"></p>
+<p>Actions on Googleでは、１つのアクションで複数の言語に対応しておくと、Google Homeの言語設定に応じてそれぞれの言語で動作するようになっています。ただし、その場合はVoiceflow側でもそれにあわせて作り込む必要がありますし、今回のハンズオンでは対応しません。このまま放置しておいても問題なさそうなのですが、もしアクションを申請・公開される場合、ここの設定も審査される可能性がありますので、対応しないのであれば消しておいたほうがよいでしょう。</p>
+<p>対応している言語を設定するには、右端の&#34;Modify languages&#34;をクリックします。</p>
+<p class="image-container"><img alt="s206-03" src="img/4a569b5b2f23951c.png"></p>
+<p>対応している言語の一覧が表示されます。&#34;Japanese&#34;以外のチェックが入っていればチェックを外してください。</p>
+<p class="image-container"><img alt="s206-04" src="img/b21a1001d469100d.png"></p>
+<p>右上の&#34;Save&#34;をクリックして保存します。</p>
+<p class="image-container"><img alt="s206-05" src="img/51b77f20488cd219.png"></p>
+<p>警告画面が表示されます。削除する言語が正しいことを確認して&#34;OK&#34;をクリックします。</p>
+<p class="image-container"><img alt="s206-06" src="img/cccc73966b4e688a.png"></p>
+<p>はい、これで不要な対応言語の作成が完了しました。</p>
 <h2 is-upgraded>ユーザの発話を取得する</h2>
 <p>ではアクションの作成を続けていきましょう。</p>
 <p>ここまでで、アクションを起動後、「ご注文をどうぞ」とGoogle Homeが聞いてくるところまではできていますので、次はユーザからの発話を取得するところです。</p>
@@ -580,6 +601,11 @@
 <p>再度、上のメニューから&#34;Test&#34;をクリックして、シミュレータを開きテストしてみてください。どういう声になるかは実際にやってみてのお楽しみです！</p>
 <p class="image-container"><img alt="s236" src="img/4d471b939e67653d.png"></p>
 
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="アクションの申請と公開" duration="0">
+        
 
       </google-codelab-step>
     
