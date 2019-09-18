@@ -948,7 +948,7 @@ Invocation（呼び出し）の設定画面が開きます。下の方にあるG
 
 ここまででGoogle Homeとの会話ができるようになりましたけど、会話だけだとちょっとなんか寂しいですよね。そういうときは効果音を使うことで、かんたんに楽しい感じにすることができます。
 
-効果音の使い方には色んな方法があります。
+アクションの中に効果音を取り入れるには色んな方法があります。
 
 - mp3ファイルをVoiceflowにアップロードする
 - アップロードされたmp3ファイルをURLで参照する
@@ -1099,6 +1099,47 @@ Voiceflowでは設定したブロックをコピー＆ペーストで複製す�
 
 少し話を戻して、サウンドを使う別の方法をご紹介します。先程はmp3ファイルそのものをアップロードしてもらいましたが、実はGoogleですでに用意された効果音のライブラリがあります。それが「サウンドライブラリ」です。
 
+では、試しにやってみましょう。以下のURLにアクセスしてください。
+
 [https://developers.google.com/actions/tools/sound-library/](https://developers.google.com/actions/tools/sound-library/)
 
 ![s326](images/s326.png)
+
+左のメニューの"Sound Library"の下に、"Doors"というのが見えるので、これをクリックします。
+
+![s327](images/s327.png)
+
+すると、ドアに関する効果音が一覧でズラッと並びます。再生ボタンをクリックするとその場で聞けます。このように多数の効果音がカテゴリーごとに掲載されており、Google Home向けのアクションで使うのであれば無料で使えるようになっています。
+
+![s328](images/s328.png)
+
+今回は、これの下の方にある"Wood Door - Open/Close" というのを使いましょう。URLをクリックしてファイルをダウンロードすることもできますが、今回はこのURL自体を使います。URLを選択してコピーする、右クリックメニューからコピーするなどして、テキストエディタなどに控えておいてください。念の為、以下にもURLを貼っておきます。
+
+```
+https://actions.google.com/sounds/v1/doors/wood_door_open_close.ogg
+```
+
+はい、ではVoiceflowでブロックを並べましょう。オレンジジュース、ミックスジュース、アップルジュースの3つのSpeak Blockの後ろに、もう一つSpeak Blockをおいて、3つのブロックからすべてつなげてください。
+
+![s329](images/s329.png)
+
+最後のSpeak Blockをクリックして発話を入力しますが、ここで以下のように入力してください。
+
+```
+<audio src="https://actions.google.com/sounds/v1/doors/wood_door_open_close.ogg"/>
+```
+
+![s330](images/s330.png)
+
+では、これでテストしてみてください。最後にドアが閉まる音が聞こえれば成功です。
+
+このように、サウンドをURLで指定して再生させることができるのですが、先程入力していただいた文字列、気づいた方はおられるかもしれませんが、これ、HTMLのタグに似てますよね？
+
+実はVUIの世界にも、HTMLと似たようなマークアップで記述するための言語として**「SSML(Speech Synthesis Markup Language)」**というものがあります。今回はSSMLのタグの一つである"audio"タグというものをつかって、こ発話の中に音声ファイルを読み込んでみました。
+
+SSMLでは他にも、発音や声量、声の高さ、速度などを変更するためのタグなどがあり、うまく使うと自然な感じに聞こえるように調整することができます。詳しくは、以下をご覧ください。
+
+[https://cloud.google.com/text-to-speech/docs/ssml?hl=ja](https://cloud.google.com/text-to-speech/docs/ssml?hl=ja)
+
+Negative
+: SSML自体は標準規格ですが、AlexaとGoogleで微妙に違ったりしますし、Alexaだけしか使えないもの、Googleだけしか使えないといった独自実装のものもありますので、ドキュメントを確認するようにしてください。

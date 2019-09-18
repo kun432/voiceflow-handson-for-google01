@@ -608,7 +608,7 @@
         <p>この章では、ここまで作ったアクションをいろいろな方法で改善していきましょう。</p>
 <h2 is-upgraded>サウンドを使う その1(mp3ファイルのアップロード)</h2>
 <p>ここまででGoogle Homeとの会話ができるようになりましたけど、会話だけだとちょっとなんか寂しいですよね。そういうときは効果音を使うことで、かんたんに楽しい感じにすることができます。</p>
-<p>効果音の使い方には色んな方法があります。</p>
+<p>アクションの中に効果音を取り入れるには色んな方法があります。</p>
 <ul>
 <li>mp3ファイルをVoiceflowにアップロードする</li>
 <li>アップロードされたmp3ファイルをURLで参照する</li>
@@ -690,8 +690,29 @@
 <p>全部で6箇所あるはずです。テキストの修正だけなので楽ちんですね！終わったらきちんとアップロードしてテストしておいてください。</p>
 <h2 is-upgraded>サウンドを使う その2（サウンドライブラリとSSML）</h2>
 <p>少し話を戻して、サウンドを使う別の方法をご紹介します。先程はmp3ファイルそのものをアップロードしてもらいましたが、実はGoogleですでに用意された効果音のライブラリがあります。それが「サウンドライブラリ」です。</p>
+<p>では、試しにやってみましょう。以下のURLにアクセスしてください。</p>
 <p><a href="https://developers.google.com/actions/tools/sound-library/" target="_blank">https://developers.google.com/actions/tools/sound-library/</a></p>
-<p class="image-container"><img alt="s325" src="img/2a25c080d47e7b9.png"></p>
+<p class="image-container"><img alt="s326" src="img/1e67e99b1c367cbb.png"></p>
+<p>左のメニューの&#34;Sound Library&#34;の下に、&#34;Doors&#34;というのが見えるので、これをクリックします。</p>
+<p class="image-container"><img alt="s327" src="img/4ec862353894dd47.png"></p>
+<p>すると、ドアに関する効果音が一覧でズラッと並びます。再生ボタンをクリックするとその場で聞けます。このように多数の効果音がカテゴリーごとに掲載されており、Google Home向けのアクションで使うのであれば無料で使えるようになっています。</p>
+<p class="image-container"><img alt="s328" src="img/6080a3a81a2db064.png"></p>
+<p>今回は、これの下の方にある&#34;Wood Door - Open/Close&#34; というのを使いましょう。URLをクリックしてファイルをダウンロードすることもできますが、今回はこのURL自体を使います。URLを選択してコピーする、右クリックメニューからコピーするなどして、テキストエディタなどに控えておいてください。念の為、以下にもURLを貼っておきます。</p>
+<pre><code>https://actions.google.com/sounds/v1/doors/wood_door_open_close.ogg
+</code></pre>
+<p>はい、ではVoiceflowでブロックを並べましょう。オレンジジュース、ミックスジュース、アップルジュースの3つのSpeak Blockの後ろに、もう一つSpeak Blockをおいて、3つのブロックからすべてつなげてください。</p>
+<p class="image-container"><img alt="s329" src="img/224b137a4fad2f75.png"></p>
+<p>最後のSpeak Blockをクリックして発話を入力しますが、ここで以下のように入力してください。</p>
+<pre><code>&lt;audio src=&#34;https://actions.google.com/sounds/v1/doors/wood_door_open_close.ogg&#34;/&gt;
+</code></pre>
+<p class="image-container"><img alt="s330" src="img/3cd9d009fe45b6d3.png"></p>
+<p>では、これでテストしてみてください。最後にドアが閉まる音が聞こえれば成功です。</p>
+<p>このように、サウンドをURLで指定して再生させることができるのですが、先程入力していただいた文字列、気づいた方はおられるかもしれませんが、これ、HTMLのタグに似てますよね？</p>
+<p>実はVUIの世界にも、HTMLと似たようなマークアップで記述するための言語として<strong>「SSML(Speech Synthesis Markup Language)」</strong>というものがあります。今回はSSMLのタグの一つである&#34;audio&#34;タグというものをつかって、こ発話の中に音声ファイルを読み込んでみました。</p>
+<p>SSMLでは他にも、発音や声量、声の高さ、速度などを変更するためのタグなどがあり、うまく使うと自然な感じに聞こえるように調整することができます。詳しくは、以下をご覧ください。</p>
+<p><a href="https://cloud.google.com/text-to-speech/docs/ssml?hl=ja" target="_blank">https://cloud.google.com/text-to-speech/docs/ssml?hl=ja</a></p>
+<aside class="warning"><p>SSML自体は標準規格ですが、AlexaとGoogleで微妙に違ったりしますし、Alexaだけしか使えないもの、Googleだけしか使えないといった独自実装のものもありますので、ドキュメントを確認するようにしてください。</p>
+</aside>
 
 
       </google-codelab-step>
