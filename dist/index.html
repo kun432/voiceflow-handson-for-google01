@@ -604,8 +604,95 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="アクションの申請と公開" duration="0">
-        
+      <google-codelab-step label="アクションの改善(STEP1)" duration="0">
+        <p>この章では、ここまで作ったアクションをいろいろな方法で改善していきましょう。</p>
+<h2 is-upgraded>サウンドを使う その1(mp3ファイルのアップロード)</h2>
+<p>ここまででGoogle Homeとの会話ができるようになりましたけど、会話だけだとちょっとなんか寂しいですよね。そういうときは効果音を使うことで、かんたんに楽しい感じにすることができます。</p>
+<p>効果音の使い方には色んな方法があります。</p>
+<ul>
+<li>mp3ファイルをVoiceflowにアップロードする</li>
+<li>アップロードされたmp3ファイルをURLで参照する</li>
+<li>SSMLとサウンドライブラリを使う</li>
+</ul>
+<p>ここでは一番かんたんなmp3ファイルアップロードをやってみましょう。</p>
+<p>今回は、「<a href="https://soundeffect-lab.info/" target="_blank">効果音ラボ</a>」様の以下のものを利用させていただきましょう。以下のリンクをクリックして、それぞれのリンク先でDLボタンをクリックしてファイルをダウンロードしてください。</p>
+<ul>
+<li><a href="https://soundeffect-lab.info/sound/search.php?searchtext=%E5%85%A5%E5%BA%97%E3%83%81%E3%83%A3%E3%82%A4%E3%83%A0&x=0&y=0" target="_blank">入店チャイム(shop-chime1.mp3)</a></li>
+<li><a href="https://soundeffect-lab.info/sound/search.php?searchtext=%E6%B0%B4%E3%82%92%E6%B3%A8%E3%81%90&x=0&y=0" target="_blank">グラスに水を注ぐ(glass-water1.mp3)</a></li>
+<li><a href="https://soundeffect-lab.info/sound/search.php?searchtext=%E3%83%AC%E3%82%B8%E3%82%B9%E3%82%BF%E3%83%BC&x=0&y=0" target="_blank">レジスターで精算(clearing1.mp3)</a></li>
+</ul>
+<aside class="warning"><p>素材配布サイトの効果音等を利用する場合、必ず配布元の利用規約を確認の上、ご利用してください。</p>
+</aside>
+<p>では、アクションにアップロードしていきます。まず、「入店チャイム(shop-chime1.mp3)」からです。Home Block直後のSpeak Blockをクリックします。</p>
+<p class="image-container"><img alt="s301" src="img/1e52196905507250.png"></p>
+<p>Speak Blockのメニューが右に表示されたら、&#34;Add Audio&#34;をクリックします。</p>
+<p class="image-container"><img alt="s302" src="img/de2bf443c38e1bf3.png"></p>
+<p>発話内容が入力されている箇所の下にAudioという欄が追加されます。&#34;Drag and Drop files here&#34;と書いてあるので、ここに先程のmp3ファイルをドラッグアンドドロップします。</p>
+<p class="image-container"><img alt="s303" src="img/a27c8394a06e3bbb.png"></p>
+<p>アップロードされました。これで完了です。かんたんですね！再生ボタンを押すとその場で再生されます。</p>
+<p class="image-container"><img alt="s304" src="img/959ab0c7faf21d67.png"></p>
+<p>これで、最初に「フルーツパーラーへようこそ・・・」と発話されて、その後、「入店チャイム」が再生されるというわけですが、先に入店チャイムが再生されるのが普通ですよね？ということで、Speak Blockの中での発話やオーディオの順番を入れ替えることもできます。音符アイコンとmp3ファイル名のあたりをドラッグして、「フルーツパーラーへ・・・」の発話よりも上にドロップしてみてください。</p>
+<p class="image-container"><img alt="s305" src="img/caf12d4b7deade56.png"></p>
+<p>はい、入れ替わりました。これもかんたんですね。</p>
+<p class="image-container"><img alt="s306" src="img/24fe1ed36e59e5f3.png"></p>
+<p>はい、ではこれでアップロードしてテストしてみましょう。</p>
+<p class="image-container"><img alt="s307" src="img/bd06156e280c64d8.png"></p>
+<p>残念ながら、これは画面ではわからないので、ぜひご自身でテストして試してみてください！</p>
+<p class="image-container"><img alt="s308" src="img/91d3101bcc11b232.png"></p>
+<p>同様にして、「グラスに水を注ぐ」「レジスターで精算」も追加してみましょう。ここは少し発話もいじってみましょう。</p>
+<p>オレンジジュースを注文したあとのSpeak Blockをクリックします。</p>
+<p class="image-container"><img alt="s309" src="img/b21c2281bd1edc61.png"></p>
+<p>発話内容を以下に変更してください。</p>
+<pre><code>オレンジジュースですね。少々お待ち下さい。
+</code></pre>
+<p class="image-container"><img alt="s310" src="img/37fb7d6e351282aa.png"></p>
+<p>次に、&#34;Add Audio&#34;をクリックして、先程と同様のやり方で、今度は「グラスに水を注ぐ(glass-water1.mp3)」をアップロードします。</p>
+<p class="image-container"><img alt="s311" src="img/b6e4bb3f72170ea6.png"></p>
+<p>mp3ファイルがアップロードされました。さらに今度は&#34;Add Speech&#34;をクリックします。</p>
+<p class="image-container"><img alt="s312" src="img/52eb908bb4e1e6a9.png"></p>
+<p>&#34;Add Audio&#34;の場合は、Speak Blockにmp3ファイルを追加しますが、&#34;Add Speech&#34;の場合は発話を追加することになります。このようにして、発話と効果音を交互に続けたりすることができるんですね。</p>
+<p class="image-container"><img alt="s313" src="img/1dcf209fea2e90a6.png"></p>
+<p>では、追加した発話の入力欄に以下の設定してください。</p>
+<pre><code>お待たせいたしました。オレンジジュースです。お会計は、350円になります。
+</code></pre>
+<p class="image-container"><img alt="s314" src="img/5e35bf1eeafc12b7.png"></p>
+<p>さらに&#34;Add Audio&#34;で今度は「レジスターで精算(clearing1.mp3)」をアップロードします。</p>
+<p class="image-container"><img alt="s315" src="img/2dd5831c33882ef0.png"></p>
+<p>最後にもう一度&#34;Add Speech&#34;で、以下を入力します。</p>
+<pre><code>ありがとうございました。
+</code></pre>
+<p class="image-container"><img alt="s316" src="img/643364a809b57a07.png"></p>
+<p>最終的には、ちょっと長くなりましたけど、こんな形になります。</p>
+<p class="image-container"><img alt="s317" src="img/479813f59df0153e.png"></p>
+<p>テストして試してみてください。想定通りになっているでしょうか？</p>
+<p>あとはこれをミックスジュースとアップルジュースでも繰り返して設定し直せばよいのですが、ちょっとめんどくさいと思いませんか・・・？</p>
+<p>ということで、少し楽をするやり方を次にご紹介します。</p>
+<h2 is-upgraded>ブロックのコピーとペースト</h2>
+<p>Voiceflowでは設定したブロックをコピー＆ペーストで複製することができます。先程修正したオレンジジュースのSpeak Blockと同様にミックスジュースとアップルジュースのSpeak Blockをそれぞれ修正してもいいんですけど、Speak Blockをコピーして、ジュースの名前と金額だけを変えたほうが早いですよね。</p>
+<p>ということでやってみましょう。</p>
+<p>まず、ミックスジュースとアップルジュースのSpeak Blockを思い切って消しちゃいます。それぞれクリックしたあとにDELETEキーを押してみてください。</p>
+<p class="image-container"><img alt="s318" src="img/89ea33d56527b98c.png"></p>
+<p>はい、消えました！</p>
+<p class="image-container"><img alt="s319" src="img/ddff11781fae5d4b.png"></p>
+<p>もう一つ別のやり方。SHIFTキーを押しながらドラッグすることで範囲選択することもできます。この場合は複数選択も可能です。選択後、DELETEキーを押します。</p>
+<p class="image-container"><img alt="s320" src="img/882b737c0993b81b.png"></p>
+<p>さらに消えました！</p>
+<p class="image-container"><img alt="s321" src="img/40829cabe5271ab6.png"></p>
+<p>はい、ではオレンジジュースのSpeak Blockを選択してCTRL+Cでコピーしてみてください。</p>
+<p class="image-container"><img alt="s322" src="img/dd435d1f7ff7b2c0.png"></p>
+<p>こんな感じのメッセージが表示されれば、ブロックがコピーされています。</p>
+<p class="image-container"><img alt="s323" src="img/d4af65f626d536e3.png"></p>
+<p>ということで、置きたい位置を一度クリックしてからCTRL+Vすると、だいたいそのあたりにペーストされます。</p>
+<p class="image-container"><img alt="s324" src="img/b0ad4dd056b853a5.png"></p>
+<p>同じように、もう一つペーストして、位置を調整して線をつなぎます。</p>
+<p>ただし、中身はすべてコピー元の「オレンジジュース」の内容になっているので、それぞれクリックして、内容を修正します。</p>
+<p class="image-container"><img alt="s325" src="img/2a25c080d47e7b9.png"></p>
+<p>全部で6箇所あるはずです。テキストの修正だけなので楽ちんですね！終わったらきちんとアップロードしてテストしておいてください。</p>
+<h2 is-upgraded>サウンドを使う その2（サウンドライブラリとSSML）</h2>
+<p>少し話を戻して、サウンドを使う別の方法をご紹介します。先程はmp3ファイルそのものをアップロードしてもらいましたが、実はGoogleですでに用意された効果音のライブラリがあります。それが「サウンドライブラリ」です。</p>
+<p><a href="https://developers.google.com/actions/tools/sound-library/" target="_blank">https://developers.google.com/actions/tools/sound-library/</a></p>
+<p class="image-container"><img alt="s325" src="img/2a25c080d47e7b9.png"></p>
+
 
       </google-codelab-step>
     
