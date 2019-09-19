@@ -3,15 +3,18 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2019-09-19T02:09:21+09:00",
+  "updated": "2019-09-20T02:18:05+09:00",
   "id": "dist",
-  "duration": 0,
+  "duration": 164,
   "title": "Voiceflowハンズオン Google Home編 Vol.1",
   "summary": "",
   "source": "index.md",
   "theme": "",
-  "status": null,
+  "status": [
+    "draft"
+  ],
   "category": null,
   "tags": [],
+  "feedback": "https://github.com/kun432/voiceflow-handson-for-google01/issues",
   "url": "dist"
 }
