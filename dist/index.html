@@ -27,7 +27,7 @@
                   environment="web"
                   feedback-link="https://github.com/kun432/voiceflow-handson-for-google01/issues">
     
-      <google-codelab-step label="概要" duration="2">
+      <google-codelab-step label="概要" duration="5">
         <h2 is-upgraded>はじめに</h2>
 <p class="image-container"><img alt="logo" src="img/ff48bd2d70a67aa0.png"></p>
 <p>Voiceflowを使った、ノンコーディングで始めるGoogle Home向けアクション開発のハンズオン資料です。</p>
@@ -417,14 +417,14 @@
 <h2 is-upgraded>VUIの基本的なコンセプト</h2>
 <p>VUIの基本となる重要な考え方として以下の３つがあります。AlexaとGoogleで言い方が違うので少しややこしいかもしれませんが、基本的な考え方は同じなので、そのうち慣れると思います。</p>
 <ol type="1">
-<li>インテント（Google/Alexa共通）</li>
-<li>フレーズ（Googleでの言い方）/サンプル発話（Alexaでの言い方）</li>
-<li>エンティティ（Googleでの言い方）/スロット（Alexaでの言い方）</li>
+<li>インテント（Alexa/Google共通）</li>
+<li>サンプル発話（Alexaでの言い方）/フレーズ（Googleでの言い方）</li>
+<li>スロット（Alexaでの言い方）/エンティティ（Googleでの言い方）</li>
 </ol>
 <p>ぞれぞれ順に説明していきます。</p>
-<aside class="warning"><p><strong>エンティティ/スロットについては、本チャプターでは使用しないため、説明を割愛します。Chapter6で、エンティティを使ってさらにアクションを改善していきますので、その際に説明します。</strong></p>
+<aside class="warning"><p><strong>スロット/エンティティについては、本チャプターでは使用しないため、説明を割愛します。Chapter7で、スロットを使ってさらにアクションを改善していきますので、その際に説明します。</strong></p>
 </aside>
-<aside class="warning"><p>なお、Vocieflowでは、Alexaの用語がベースになっているようなので、画面などで出てくる用語はAlexaのものになっていることが多いです。予めご了承下さい。</p>
+<aside class="warning"><p>なお、Vocieflowでは、Alexaの用語がベースになっているようで、画面などで出てくる用語はAlexaのものになっていることが多いです。本資料でも、以降はAlexaの言い方で統一したいと思います。予めご了承下さい。</p>
 </aside>
 <aside class="special"><p>適宜補足していきますので安心してください！</p>
 </aside>
@@ -443,7 +443,7 @@
 <p class="image-container"><img alt="s011-2" src="img/c4b628a5a0fa113f.png"></p>
 <p>はい、「オレンジジュースを注文したい」がインテントになりますね。このインテントに対して、注文をうけて金額を回答するというのが今回作成するアクションになります（実際にオレンジジュースを出すのはスマートスピーカーにはできないので人の手が必要ですが・・・）。</p>
 <p>このように、ユーザがやりたい「インテント」を用意して、それに応じた処理を作っていく、というのが、VUI／スマートスピーカーアプリ開発の基本的な流れになりますので、まずはこの考え方に慣れるようにしてくださいね。</p>
-<h3 is-upgraded>フレーズ/サンプル発話</h3>
+<h3 is-upgraded>サンプル発話</h3>
 <p>インテントについては理解できたと思います。が、少し考えてみてください。「オレンジジュースを注文したい」というインテントに対して、あなたが実際にお店に行ったとき、どう話しますか？</p>
 <ul>
 <li>「オレンジジュースをちょうだい」</li>
@@ -457,14 +457,14 @@
 <li>「オレンジジュースお願い」</li>
 <li>「オレンジジュースで」</li>
 </ul>
-<p>同じ「インテント」なのにいろんな言い方がありますよね。このように、一つの「インテント」に対して、ユーザが実際に発話するバリエーションのことを「フレーズ」「サンプル発話」といいます。</p>
+<p>同じ「インテント」なのにいろんな言い方がありますよね。このように、一つの「インテント」に対して、ユーザが実際に発話するバリエーションのことを「サンプル発話」といいます。</p>
 <p>人間の会話の中では些細な違いですが、コンピュータにとっては１文字違うだけで別のデータになります。GoogleやAmazonは、AIやビッグデータを駆使して、こういったバリエーションの違いなども同じインテントとして正しく理解できるように改善を進めていますが、現時点ではまだまだ完璧ではありません。</p>
-<p>そこで、開発者側でこれらのバリエーションを「フレーズ」「サンプル発話」として予め「インテント」と紐付けて、ユーザの様々なバリエーションに広く対応できるようにする必要があります。このバリエーションを多数用意すればするほど、ユーザにとっては「精度が高い」ということになりますので、できるだけ多く登録することをおすすめします。</p>
+<p>そこで、開発者側でこれらのバリエーションを「サンプル発話」として予め「インテント」と紐付けて、ユーザの様々なバリエーションに広く対応できるようにする必要があります。このバリエーションを多数用意すればするほど、ユーザにとっては「精度が高い」ということになりますので、できるだけ多く登録することをおすすめします。</p>
 <aside class="special"><p>GoogleやAmazonでも日々AIの改善は行われていますし、現時点でも細かい違いはある程度よしなに解釈してくれます。</p>
 </aside>
 <p>Netagiveただし、正しく解釈されるかどうかはやってみないとわからないところもあるので、なるべく多く登録しておくことをおすすめします。</p>
-<h3 is-upgraded>エンティティ/スロット</h3>
-<p>本チャプターで作成するアクションでは、エンティティ/スロットを扱いませんので、説明を割愛します。次のChapterで、エンティティ/スロットを使って、サンプルスキルを更に改修していきますので、その際に説明します。</p>
+<h3 is-upgraded>スロット</h3>
+<p>本チャプターで作成するアクションでは、スロットを扱いませんので、説明を割愛します。次のChapterで、スロットを使って、サンプルスキルを更に改修していきますので、その際に説明します。</p>
 <h2 is-upgraded>インテントとサンプル発話の登録</h2>
 <p>VUIの基本的な考え方がわかったところで、アクションの作成に戻りましょう。Interaction Blockを配置して、&#34;Intents&#34;のタブを開いたところでしたよね。</p>
 <p class="image-container"><img alt="s209" src="img/3b43671bdefa4e18.png"></p>
@@ -483,11 +483,11 @@
 </ul>
 <p>では、順にやっていきます。まず「インテント名」をつけます。&#34;intent_one&#34;と書いてあるところを&#34;orange_intent&#34;と変更してください。</p>
 <p class="image-container"><img alt="s212" src="img/87d576099f9c161d.png"></p>
-<p>さらに、インテントに紐づくフレーズを入力していきます。&#34;Enter user reply&#34;と書いてある入力欄に、オレンジジュースを注文するときにユーザが言いそうな発話例を入力していきます。「オレンジジュースをちょうだい」と入力して、ENTERを押すと・・・</p>
+<p>さらに、インテントに紐づくサンプル発話を入力していきます。&#34;Enter user reply&#34;と書いてある入力欄に、オレンジジュースを注文するときにユーザが言いそうな発話例を入力していきます。「オレンジジュースをちょうだい」と入力して、ENTERを押すと・・・</p>
 <p class="image-container"><img alt="s213" src="img/177318adf1487085.png"></p>
-<p>はい、orange_intentにフレーズが登録されました。</p>
+<p>はい、orange_intentにサンプル発話が登録されました。</p>
 <p class="image-container"><img alt="s214" src="img/fdb0fe6292486dce.png"></p>
-<p>フレーズをたくさん登録すると様々なユーザの発話バリエーションに対応できるのでしたよね。同じ要領で、続けて以下のサンプル発話も登録してみてください。</p>
+<p>サンプル発話をたくさん登録すると様々なユーザの発話バリエーションに対応できるのでしたよね。同じ要領で、続けて以下のサンプル発話も登録してみてください。</p>
 <pre><code>オレンジジュースをください
 オレンジジュースをお願いします
 オレンジジュースをお願い
@@ -503,7 +503,7 @@
 <h4 is-upgraded>インテント名</h4>
 <pre><code>mix_intent
 </code></pre>
-<h4 is-upgraded>フレーズ</h4>
+<h4 is-upgraded>サンプル発話</h4>
 <pre><code>ミックスジュースをちょうだい
 ミックスジュースをください
 ミックスジュースをお願いします
@@ -516,7 +516,7 @@
 <h4 is-upgraded>インテント名</h4>
 <pre><code>apple_intent
 </code></pre>
-<h4 is-upgraded>フレーズ</h4>
+<h4 is-upgraded>サンプル発話</h4>
 <pre><code>アップルジュースをちょうだい
 アップルジュースをください
 アップルジュースをお願いします
@@ -525,7 +525,7 @@
 </code></pre>
 <p>最終的に３つのインテントを登録するとこんな感じになります。どうでしょうか？同じになっていますか？</p>
 <p class="image-container"><img alt="s219" src="img/e063585b84037bac.png"></p>
-<p>これで、インテントとフレーズの設定が終わりました。フレーズに登録された発話をユーザが行うと、それぞれのインテントに紐付けられますので、次はこれをインテントごとに分岐させて会話フローを作っていきます。&#34;Choices&#34;タブをクリックしてください。</p>
+<p>これで、インテントとサンプル発話の設定が終わりました。サンプル発話に登録された発話をユーザが行うと、それぞれのインテントに紐付けられますので、次はこれをインテントごとに分岐させて会話フローを作っていきます。&#34;Choices&#34;タブをクリックしてください。</p>
 <p class="image-container"><img alt="s220" src="img/5ff9ad869527fd63.png"></p>
 <p>&#34;Choices&#34;タブでは、各インテントごとの会話フローの「分岐（Choice）」を作成します。&#34;+ Add Choice&#34;をクリックしてみてください。</p>
 <p class="image-container"><img alt="s221" src="img/853ec7ee4b2bc2c6.png"></p>
@@ -717,17 +717,17 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="アクションの改善(STEP2)" duration="30">
+      <google-codelab-step label="アクションの改善(STEP2)" duration="40">
         <p>この章では、よりVUIらしいやりとりができるように改善していきます。ということで、少し5章の内容をおさらいしましょう。</p>
-<h2 is-upgraded>エンティティ/スロット</h2>
+<h2 is-upgraded>スロット</h2>
 <p>5章でVUIの基本となる重要な考え方として以下の３つがあるということを説明しました。</p>
 <ol type="1">
 <li>インテント（Google/Alexa共通）</li>
-<li>フレーズ（Googleでの言い方）/サンプル発話（Alexaでの言い方）</li>
-<li>エンティティ（Googleでの言い方）/スロット（Alexaでの言い方）</li>
+<li>サンプル発話（Alexaでの言い方）/フレーズ（Googleでの言い方）</li>
+<li>スロット（Alexaでの言い方）/エンティティ（Googleでの言い方）</li>
 </ol>
-<p>「ユーザがやりたい・やってほしいと思っていること」が「インテント」、そしてそのインテントに対してのユーザの発話のバリエーションが「フレーズ」「サンプル発話」でしたね。覚えていますか？</p>
-<p>今回は、5章で前回説明しなかった3つ目の要素、「エンティティ/スロット」を説明します。まず最初に以下の文を見てください。</p>
+<p>「ユーザがやりたい・やってほしいと思っていること」が「インテント」、そしてそのインテントに対してのユーザの発話のバリエーションが「サンプル発話」でしたね。覚えていますか？</p>
+<p>今回は、5章で前回説明しなかった3つ目の要素、「スロット」を説明します。まず最初に以下の文を見てください。</p>
 <p class="image-container"><img alt="s401" src="img/c2ba21edfd06a4bc.png"></p>
 <p>これまでのアクションでは、注文したい飲み物の種類に合わせて、それぞれインテントを作って分岐をしていました。全然問題なかったですよね。でも、もしメニューがもっと増えてきたらどうなるでしょうか？</p>
 <ul>
@@ -735,12 +735,12 @@
 <li>それに応じたSpeak Blockも追加して中身を直していかないといけない</li>
 <li>たくさん増えたあとに共通の発話内容を修正しないといけない、サンプル発話を増やしたい、となったら・・・・</li>
 </ul>
-<p>非常に非効率ですね・・・そこでエンティティ/スロットの出番です。先程のユーザの発話、よく見ると・・・</p>
+<p>非常に非効率ですね・・・そこでスロットの出番です。先程のユーザの発話、よく見ると・・・</p>
 <p class="image-container"><img alt="s402" src="img/3952379a6c1dceed.png"></p>
-<p>「飲み物」のところ以外はすべて同じですよね。であれば、「飲み物」のところだけを、プログラミングで言う「変数」にして、それ以外は共通化してしまえば、メニューが増えても変数の値の種類が増えるだけだし、発話の修正やフレーズの追加なども1箇所だけで済みます。これが「エンティティ/スロット」を使うということです。とりあえず今の時点ではなんとなくイメージだけ持ってもらえばOKです。実際に使ってみればわかると思いますので、やっていきましょう。</p>
-<p>エンティティの設定はInteraction Blockで行います。真ん中のInteraction Blockをクリックしてメニューを表示してください。</p>
+<p>「飲み物」のところ以外はすべて同じですよね。であれば、「飲み物」のところだけを、プログラミングで言う「変数」にして、それ以外は共通化してしまえば、メニューが増えても変数の値の種類が増えるだけだし、発話の修正やサンプル発話の追加なども1箇所だけで済みます。これが「スロット」を使うということです。とりあえず今の時点ではなんとなくイメージだけ持ってもらえばOKです。実際に使ってみればわかると思いますので、やっていきましょう。</p>
+<p>スロットの設定はInteraction Blockで行います。真ん中のInteraction Blockをクリックしてメニューを表示してください。</p>
 <p class="image-container"><img alt="s403" src="img/3611febc4207df4.png"></p>
-<p>Interaction Blockのメニューの右端にある&#34;Slots&#34;タブをクリックしてください。（Googleでは「エンティティ」という言い方になるのですが、Voiceflowの用語はAlexa寄りなので&#34;Slots&#34;になってます。少しややこしいですね・・・）</p>
+<p>Interaction Blockのメニューの右端にある&#34;Slots&#34;タブをクリックしてください。</p>
 <p class="image-container"><img alt="s404" src="img/4c07aecbea5a4542.png"></p>
 <p>Slotsの画面が表示されるので、&#34;+ Add Slot&#34;をクリックします。</p>
 <p class="image-container"><img alt="s405" src="img/dfd107071ccfe7ab.png"></p>
@@ -748,7 +748,7 @@
 <p class="image-container"><img alt="s406" src="img/b6b6f671e6b0a198.png"></p>
 <p>次に、&#34;Select Slot Type&#34;のドロップダウンメニューを一度クリックしてみてください。</p>
 <p class="image-container"><img alt="s407" src="img/6e4e6877f3f3f19d.png"></p>
-<p>いろいろありますね。エンティティ/スロットには「タイプ」という概念があります。例えば、&#34;Country&#34;タイプには、予め以下のような各国の名前が用意されています。</p>
+<p>いろいろありますね。スロットには「タイプ」という概念があります。例えば、&#34;Country&#34;タイプには、予め以下のような各国の名前が用意されています。</p>
 <ul>
 <li>日本</li>
 <li>アメリカ</li>
@@ -756,15 +756,15 @@
 <li>ロシア</li>
 <li>・・・</li>
 </ul>
-<p>ユーザの発話を受け取ったときに、エンティティ/スロットに一致する可能性がある値のリストが予め登録されているので、発話の中のこの部分はエンティティ/スロットなんだな、ということをスマートスピーカーが認識しやすくなるというわけです。こういった「タイプ」が多数用意されているので、取りたいスロットに応じたタイプを選択することが重要になります。</p>
+<p>ユーザの発話を受け取ったときに、スロットに一致する可能性がある値のリストが予め登録されているので、発話の中のこの部分はスロットなんだな、ということをスマートスピーカーが認識しやすくなるというわけです。こういった「タイプ」が多数用意されているので、取りたいスロットに応じたタイプを選択することが重要になります。</p>
 <p class="image-container"><img alt="s408" src="img/e507be9941245406.png"></p>
-<p>予め用意されたエンティティ/スロットのタイプに適切なものがなかった場合でも、独自のタイプと独自の値のリストを定義することができます。それが「カスタムタイプ」になります。今回はメニューが予め決まっているので、それをカスタムタイプとして登録しましょう。&#34;Custom&#34;を選択してください。</p>
+<p>予め用意されたスロットのタイプに適切なものがなかった場合でも、独自のタイプと独自の値のリストを定義することができます。それが「カスタムタイプ」になります。今回はメニューが予め決まっているので、それをカスタムタイプとして登録しましょう。&#34;Custom&#34;を選択してください。</p>
 <p class="image-container"><img alt="s409" src="img/8547395278f87ddf.png"></p>
 <p>そして、スロット値の候補となる値を&#34;Enter Slot Content Example&#34;のところに一つづつ入力していきます。一つ入力するたびにENTERを押してください。</p>
 <p class="image-container"><img alt="s410" src="img/6bdefe86d65ab6ae.png"></p>
 <p>今回は3つの候補、オレンジジュース、ミックスジュース、アップルジュースとなりますので、以下のようになればOKです。</p>
 <p class="image-container"><img alt="s411" src="img/4733178e355471c6.png"></p>
-<p>はい、これで、エンティティ/スロットの設定は完了です。今度はこれをインテントから呼び出すようにします。&#34;Intents&#34;タブをクリックしてください。</p>
+<p>はい、これで、スロットの設定は完了です。今度はこれをインテントから呼び出すようにします。&#34;Intents&#34;タブをクリックしてください。</p>
 <p class="image-container"><img alt="s412" src="img/a39e8177ee06c48a.png"></p>
 <p>これまでに登録した、オレンジジュース用、ミックスジュース用、アップルジュース用のインテントが見えてますよね。これ思い切って全部消しちゃいましょう！各インテントの右上の&#34;X&#34;をクリックしてみてください。</p>
 <p class="image-container"><img alt="s413" src="img/42b9a2175fa94c03.png"></p>
@@ -780,15 +780,15 @@
 <p class="image-container"><img alt="s416" src="img/56b9bd0849cb0f95.png"></p>
 <p>インテント名を設定します。&#34;intent_one&#34;を&#34;order_intent&#34;に変更します。</p>
 <p class="image-container"><img alt="s417" src="img/871c0e9468b7e140.png"></p>
-<p>フレーズ/サンプル発話を入力します。ここでエンティティ/スロットの出番です。とりあえず、&#34;[&#34; だけ入力してみてください。</p>
+<p>サンプル発話を入力します。ここでスロットの出番です。とりあえず、&#34;[&#34; だけ入力してみてください。</p>
 <p class="image-container"><img alt="s418" src="img/e1ca47eccb1d43a.png"></p>
-<p>先程設定したエンティティ名/スロット名が出てきたのがわかるでしょうか。これをクリックします。</p>
+<p>先程設定したスロット名が出てきたのがわかるでしょうか。これをクリックします。</p>
 <p class="image-container"><img alt="s419" src="img/f33386d87150bf9.png"></p>
-<p>エンティティ名/スロット名が青く網掛けされて入力されましたね。一つ半角スペースを入れて、続けて「をちょうだい」と入力してENTERをクリックします。</p>
-<aside class="warning"><p>スロットとそれに続くフレーズの間に必ず半角スペースを忘れないようにしてください。</p>
+<p>スロット名が青く網掛けされて入力されましたね。一つ半角スペースを入れて、続けて「をちょうだい」と入力してENTERをクリックします。</p>
+<aside class="warning"><p>スロットとその前後のフレーズの間に必ず半角スペースを忘れないようにしてください。</p>
 </aside>
 <p class="image-container"><img alt="s420" src="img/6aacda059ceadcf4.png"></p>
-<p>このように、フレーズ/サンプル発話内にエンティティ名/スロット名を入れて入力することで、インテント・フレーズ/サンプル発話・エンティティ/スロットが紐付けられるという仕組みになっています。続けて以下も入力してください。</p>
+<p>このように、サンプル発話内にスロット名を入れて入力することで、インテント・サンプル発話・スロットが紐付けられるという仕組みになっています。続けて以下も入力してください。</p>
 <pre><code>[drink_slot] をください
 [drink_slot] をお願いします
 [drink_slot] をお願い
@@ -799,12 +799,140 @@
 <p>残念ながら、スロットの部分はそのままコピペすると正しくスロットとして認識されません。必ず、&#34;[&#34; を入力して、表示されるスロット名を選択するようにしてください。正しくスロットとして認識されているかどうかは青く網掛けされているかどうかで判断できます。注意してください。</p>
 <p>全部登録するとこんな感じになります。同じ様になっていればOKです。では&#34;Choice&#34;で分岐の設定を行います。</p>
 <p class="image-container"><img alt="s422" src="img/6162bd83a16d2a37.png"></p>
+<p>インテントを削除したのですべてエラーのようなものが表示されています。これを見るとIntentsとChoicesは一対一の関係になっていて、インテントに応じて会話のフローが分岐するということがよくわかりますね。</p>
+<p class="image-container"><img alt="s423" src="img/8cd75387bf083f7e.png"></p>
+<p>今回は、インテントが一つで、スロット複数あるのでした。したがって、インテントは一つだけあればOKですので、2番目のミックスジュースのインテント(mix_intent)と3番目のアップルジュースのインテント(apple_intent)を削除しましょう。それぞれの右上の&#34;☓&#34;をクリックして削除してください。1番目のオレンジジュースのインテントは削除しないでください。</p>
+<p class="image-container"><img alt="s424" src="img/402336d5665c49ae.png"></p>
+<p>削除したインテントからつながっていたSpeak Blockの線も消えますので、それぞれのSpeak Blockも消します。</p>
+<p class="image-container"><img alt="s425" src="img/9c48e44182e8fd40.png"></p>
+<p>残ったオレンジジュースのインテントは、先ほど作成した&#34;order_intent&#34;に変えます。</p>
+<p class="image-container"><img alt="s426" src="img/ea6560f3ffd494bd.png"></p>
+<p>すると下にSlot Mappingというのが表示されるようになります。スロットを使ったインテントを作成すると、スロットと変数の「紐付け」を行えるようになるのですね。では、&#34;+ Add Variable Map&#34;をクリックしてください。</p>
+<p class="image-container"><img alt="s427" src="img/329594440a4f4586.png"></p>
+<p>Slotとのところは&#34;[drink_slot]&#34;を選択します。</p>
+<p class="image-container"><img alt="s428" src="img/dfdf37cf80d9acd5.png"></p>
+<p>Variableのところは一番下の&#34;Create Variable&#34;をクリックします。</p>
+<p class="image-container"><img alt="s429" src="img/b06a66688a5abfa6.png"></p>
+<p>すると左端のメニューが変わったのがわかるでしょうか？これはVariablesメニューといって、変数を作成することができるメニューになっています。</p>
+<p class="image-container"><img alt="s430" src="img/91c097eb6054ac90.png"></p>
+<p>上の&#34;Create Variable (Project)&#34;の下にある入力欄に&#34;DrinkName&#34;と入力してENTERキーを押すと変数が作成されます。</p>
+<p class="image-container"><img alt="s431" src="img/277562aa1e6f6480.png"></p>
+<p>再度、右に表示されているInteraction Blockのメニューに戻って、Slot MappingのVariableで&#34;{DrinkName}&#34;を選択します。</p>
+<p class="image-container"><img alt="s432" src="img/b03d70d5f814f3bb.png"></p>
+<p>はい、これでスロット&#34;[drink_slot]&#34;の値が、変数&#34;{DrinkName}&#34;に入るようになりました。変数はSpeak Blockなどから呼び出すことができます。実際にSpeak Blockを編集して試してみましょう。Interaction Blockの次のSpeak Blockをクリックして、メニューを開いてください。</p>
+<p class="image-container"><img alt="s433" src="img/bee8a8bddc5e0824.png"></p>
+<p>発話の中に&#34;オレンジジュース&#34;という記載がありますよね。これを変数に置き換えてみましょう。オレンジジュースを選択して削除してください。</p>
+<p class="image-container"><img alt="s434" src="img/753b008f36390eed.png"></p>
+<p>削除したところにカーソルを合わせて、&#34;{&#34;を入力してみてください。変数の一覧がドロップダウンで出てきたのがわかりますか？</p>
+<p class="image-container"><img alt="s435" src="img/8ab0b77f7eeabdc8.png"></p>
+<p>でも先ほど作成した&#34;{DrinkName}&#34;が見当たりませんね・・・そういうときは変数の1文字目を続けて入力します。&#34;d&#34;を入力すると、</p>
+<p class="image-container"><img alt="s436" src="img/9a842d72a6b0dfed.png"></p>
+<p>表示されましたね！あとはこれを選択します。青の網掛けになっていれば変数として正しく埋め込まれています。このあたりはインテントにスロットを設定したのと同じ感じだと思ってもらえればよいです。</p>
+<p class="image-container"><img alt="s437" src="img/35281d042875743d.png"></p>
+<p>したがって、変数の前後のフレーズの間にも半角スペースが必要ですので、注意してください。</p>
+<p class="image-container"><img alt="s438" src="img/ddc9d5c4bd698d43.png"></p>
+<aside class="warning"><p>変数とその前後のフレーズの間に必ず半角スペースを忘れないようにしてください。</p>
+</aside>
+<p>同じようにして、もう1箇所、「オレンジジュース」となっている箇所があるので、ここも変数に直してください。</p>
+<p class="image-container"><img alt="s439" src="img/3554c9dbc620bbee.png"></p>
+<p>ではテストしてみましょう。</p>
+<p class="image-container"><img alt="s440" src="img/a1fcf4528c8b342e.png"></p>
+<p>はい、スロットと変数がちゃんと動作していますね！とても処理がシンプルになりました！でも、値段が常に350円になっちゃってますね？変数も使えるようになったのでプログラミング的な対応をしてみましょう。</p>
+<p>Variablesメニューを表示してみてください。もしVariablesメニューが表示されていない場合は、以下のように、左の小さなアイコンをクリックしてメニューを切り替えることができます。</p>
+<p class="image-container"><img alt="s441" src="img/af30567b60ada5e8.png"></p>
+<p>先ほどと同じように、入力欄に&#34;Price&#34;と入力してENTERで、変数を作成してください。</p>
+<p class="image-container"><img alt="s442" src="img/4823e8f256e5c399.png"></p>
+<p>次に、Blocksメニューに戻りましょう。左の小さなアイコンのうち、一番上のアイコンがBlocksメニューのアイコンになりますので、これをクリックします。</p>
+<p class="image-container"><img alt="s443" src="img/f9587079351df2b6.png"></p>
+<p>Blocksメニューの中にある、If Blockをドラッグ＆ドロップで配置してください。</p>
+<p class="image-container"><img alt="s444" src="img/7435311c700011aa.png"></p>
+<p>If Blockでは、いわゆる「条件分岐」を設定することができます。ここで注文された飲み物名に応じて値段を設定するようにしてみましょう。右側の設定メニューで、&#34;Variable Name&#34;の「▼」をクリックして、ドロップダウンから&#34;DrinkName&#34;を選択します。</p>
+<p class="image-container"><img alt="s445" src="img/43ceb539dc12d811.png"></p>
+<p>さらにその下のValueのところに「オレンジジュース」と入力します。</p>
+<p class="image-container"><img alt="s446" src="img/d3a879c452c62c62.png"></p>
+<p>はい、これで、「{DrinkName}が&#34;オレンジジュース&#34;だったら」という条件が作成されたことになります。続けて「ミックスジュース」と「アップルジュース」の条件も追加していきます。&#34;Add If Statement&#34;をクリックすると、新たな条件を追加できるようになりますので、同じように設定してみてください。</p>
+<p class="image-container"><img alt="s447" src="img/37e8dbae9ec2bef1.png"></p>
+<p>すべて追加するとこんな感じになります。条件ごとにブロックから分岐が別れているのがわかりますか？このようにして条件分岐させるのがIf Blockです。すごくプログラミング的ですね！</p>
+<p class="image-container"><img alt="s448" src="img/b0333af877a0292d.png"></p>
+<aside class="warning"><p>&#34;DrinkName = NaN&#34;という記述が気になる方がいらっしゃるかもしれませんが、&#34;数値ではない(Not a Number)&#34;という意味を表しているだけで、不具合ではありません。</p>
+</aside>
+<p>これで飲み物ごとに分岐できるようになりましたので、次は値段です。先程&#34;Price&#34;という変数を作成しましたので、これを使って、変数に値段を設定するようにしましょう。変数に値をセットするには、Set Blockを使います。Set Blockをドラッグ＆ドロップで配置します。</p>
+<p class="image-container"><img alt="s449" src="img/c5343183e2117425.png"></p>
+<p>右側のSet Blockのメニューで、&#34;Variable Name&#34;の「▼」をクリックして、ドロップダウンから&#34;Price&#34;を選択します。</p>
+<p class="image-container"><img alt="s450" src="img/87d1bece818ef87d.png"></p>
+<p>さらにその下のValueのところに「350」と入力します。</p>
+<p class="image-container"><img alt="s451" src="img/31fca3023a118743.png"></p>
+<p>はい、これで変数&#34;{Price}&#34;に350という値が入りました。あとはこれをIf Blockからつなぐだけです。オレンジジュースが350円だったので、If Blockのオレンジジュースの分岐からSet Blockに線をつなげます。</p>
+<p class="image-container"><img alt="s452" src="img/d04c173c6f44914f.png"></p>
+<p>同様にして、ミックスジュース＝450円、アップルジュース＝400円のSet Blockを作成して、If Blockからつなげてください。こういう感じになればOKです。</p>
+<p class="image-container"><img alt="s453" src="img/e1530ef6797abdb9.png"></p>
+<p class="image-container"><img alt="s454" src="img/f4114e769c8e4589.png"></p>
+<p>はい、では、会話フローをつなげましょう。Interactin BlockからSpeak Blockにつながっている線を、If Blockの方に引き直してください。</p>
+<p class="image-container"><img alt="s455" src="img/3e13f0b375e4dfbf.png"></p>
+<p>さらに、3つのSet Blockから、最初にInteractin BlockにつながっていたSpeak Blockに線をつなげます。</p>
+<p class="image-container"><img alt="s456" src="img/5ea88cacdda87ebf.png"></p>
+<p>Set BlockからつなげたSpeak Blockをクリックして、値段を発話している箇所を変数&#34;{Price}&#34;に置き換えてください。</p>
+<p class="image-container"><img alt="s457" src="img/431eeb47050dc59d.png"></p>
+<p>これで完成です。ちょっと流れが見にくいのでブロックの位置を調整しておきましょう。</p>
+<p class="image-container"><img alt="s458" src="img/9102a63bdab83b21.png"></p>
+<p>では、いよいよ最後のテストです！</p>
+<p class="image-container"><img alt="s459" src="img/b42ec87f64ddd5ac.png"></p>
+<p>ちゃんと、飲み物ごとに値段が異なっていますね！このように、インテント・サンプル発話・スロットをうまく組み合わせれば、効率的なアクション開発ができるということがわかっていただければ幸いです。</p>
+<p>これでハンズオンは終了です！お疲れさまでした！！</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="審査と公開" duration="10">
-        
+      <google-codelab-step label="（参考）審査と公開" duration="20">
+        <p>スキルを世の中に公開して広く利用してもらうためには、必要な情報を入力した上で申請を行い、Google社の審査をパスする必要があります。ここでは、申請の手順についてご紹介します。</p>
+<aside class="warning"><p>本ハンズオンで作成するスキルは、今後のハンズオンでも使用するため、審査に出すことはやめてください。（多分審査を通ることはないと思いますが、念の為）</p>
+</aside>
+<aside class="warning"><p>Alexaスキルの場合は、Voiceflowから直接申請・審査に提出することができますが、Google Homeアクションの場合は、現時点では残念ながら、Actions on Googleから手動で申請・審査に提出する必要があります。</p>
+</aside>
+<p>Actions on Googleにアクセスして、Overviewのページを開いてください。</p>
+<p class="image-container"><img alt="s501" src="img/9bfcd824a77a2cfd.png"></p>
+<p>ここに表示される各項目がすべてチェックが入った状態になる必要があります。すでにいくつか設定したものもありますが、順に見ていきましょう。</p>
+<h2 is-upgraded>Quick setup</h2>
+<p>Quick setupの項目では、「呼び出し名」を設定します。本ハンズオン資料に沿って実施された場合はすでにチェックが入っていると思いますので、割愛します。詳しくは、Chapter5「呼び出し名の設定」「言語設定の変更」をご覧ください。</p>
+<h2 is-upgraded>Build your Action</h2>
+<p>Build your Actionの項目は、アクション自体の設定やテストなどを行います。Voiceflowでアクションを作成し、Actions Simulatorできちんとテストを行っていれば、申請時には特に変更不要です。</p>
+<h2 is-upgraded>Get ready for deployment</h2>
+<p>ここが申請時に設定する箇所になります。3つの項目がありますので、それぞれ説明します。</p>
+<h3 is-upgraded>Enter information required for listing your Action in the Actions directory</h3>
+<p>ここでは、アクションの情報や説明を入力していきます。&#34;Enter information required for listing your Action in the Actions directory&#34;をクリックします。</p>
+<p class="image-container"><img alt="s502" src="img/e1f9e90341f1b7fa.png"></p>
+<p>必要な事項を入力していきます。</p>
+<p class="image-container"><img alt="s502-2" src="img/a4c8b4dbad85a02d.png"></p>
+<p class="image-container"><img alt="s502-3" src="img/560557198e197e31.png"></p>
+<p>いくつか注意を記載しておきます。</p>
+<ul>
+<li>アクションの呼び出し例は最大5個まで登録できます。この呼び出し例は決まっていますので自由に決めれるというわけではありませんのでご注意ください。また、これらがすべて動作することを確認しておく必要があります。詳しくは <a href="https://developers.google.com/actions/localization/languages-locales#trigger_phrases_10" target="_blank">https://developers.google.com/actions/localization/languages-locales#trigger_phrases_10</a>をご確認ください。</li>
+<li>Google Homeアクションでは、プライバシーポリシーは「必須」となっています。Googleドキュメント等を使用して作成・公開し、URLを記載する必要があります。</li>
+</ul>
+<p>最後にかならず右上の「Save」をクリックしてください。</p>
+<p class="image-container"><img alt="s502-4" src="img/25304a7e3a90dcc2.png"></p>
+<h3 is-upgraded>Select the countries your Actions will be deployed to</h3>
+<p>この項目では、アクションを提供する国を選択することができます。&#34;Select the countries your Actions will be deployed to&#34;をクリックします。</p>
+<p class="image-container"><img alt="s503" src="img/e29cc6df037a9c15.png"></p>
+<p>アクション側で多言語化していれば、複数の国で提供することも可能です。日本語のみのアクションであれば日本のみを選択すれば良いと思います。デフォルトでは、すべての国が選択されていると思いますので、&#34;All countries and regions&#34;のチェックを外して、&#34;Japanese&#34;だけにチェックを入れてください。</p>
+<p class="image-container"><img alt="s503-2" src="img/8684a5061553d933.png"></p>
+<p>最後にかならず右上の「Save」をクリックしてください。</p>
+<h3 is-upgraded>Select the surfaces your Actions will run on</h3>
+<p>この項目では、アクションを動作させる環境や機器を設定することができます。&#34;Select the surfaces your Actions will run on&#34;をクリックします。</p>
+<p class="image-container"><img alt="s504" src="img/1c9682e1d24dcebf.png"></p>
+<p>アクションが特定のデバイスの条件を要求する場合は個々を設定します。例えば、画面付きデバイスでしか動作しない（画面への出力がある）アクションの場合は、ここを設定する必要があります。一般的な発話だけのスキルであれば、すべて&#34;No&#34;のままで良いと思います。</p>
+<p class="image-container"><img alt="s504-2" src="img/de92f532905b85b7.png"></p>
+<p>最後にかならず右上の「Save」をクリックしてください。</p>
+<h2 is-upgraded>Release</h2>
+<p>ここまでの情報の入力が設定が終わっていれば、いよいよ申請です。一番下の&#34;Release&#34;をクリックします。</p>
+<p class="image-container"><img alt="s505" src="img/561a50607f85ee98.png"></p>
+<p>&#34;Submit for production&#34;をクリックして、申請します！</p>
+<p class="image-container"><img alt="s506" src="img/982fad1e9c40fa94.png"></p>
+<p>審査の合否には通常数日程度かかり、メールで通知されます。場合によってはリジェクトされることもありますが、メール内にリジェクト理由がきちんと明記されていますので、その内容に従って修正し、再度申請を行ってください。</p>
+<aside class="special"><p>リジェクトされたからと諦めないでください！数回程度リジェクトされることは珍しいことではありません。</p>
+</aside>
+<p>ぜひ頑張ってみてください！</p>
+
 
       </google-codelab-step>
     
